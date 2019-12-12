@@ -1,0 +1,51 @@
+
+#ptm-container {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+}
+
+ label {
+    padding: 10px;
+}
+
+
+.card-input {
+    display: none;
+}   
+.card-element:hover {
+    cursor: pointer;
+}
+
+
+.card-input:checked + .card-element {
+     box-shadow: 0 0 1px 1px #2ecc71;
+     
+ }
+.container-button {
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+}
+.myStyle {
+    font-weight: bold;
+    font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+}
+.good, .done, .onTime{
+   background-color: 	#2bff00;
+}
+
+.slow, .unsatisfactory,.notDone, .poor, .poorQuality, .late {
+    background-color: #ff0000;
+}
+.right{
+    display: flex;
+    justify-content: flex-end;
+}
+/* .card-body {
+    padding: 0px;
+} */
+p {
+    margin: 0px;
+}

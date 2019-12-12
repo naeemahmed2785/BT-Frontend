@@ -1,0 +1,103 @@
+<form action="" id="emptyForm">
+  <div class="container">
+    <div id="ptm-container" class="card mt-3">
+      <ul>
+        <div id="behave-container">
+          <h6>Today's Behaviour</h6>
+          <label for="" class="behavior">
+            <input type="radio" name="behave" value="good" (click)="behaviorChanged($event)"> Good
+          </label>
+          <label for="" class="behavior">
+            <input type="radio" name="behave" value="satisfactory" (click)="behaviorChanged($event)"> Satisfactory
+          </label>
+          <label for="" class="behavior">
+            <input type="radio" name="behave" value="unsatisfactory" (click)="behaviorChanged($event)"> Unsatisfactory
+          </label>
+          <label for="" class="behavior">
+            <input type="checkbox" value="poor" (click)="checkboxes('concenPoor',$event)"> Tick if Concentration is poor
+          </label>
+        </div>
+        <div id="pace-container">
+          <h6>Today's Workpace</h6>
+          <label for="" class="workpace">
+            <input type="radio" name="pace" value="good" (click)="paceChanged($event)"> Good
+          </label>
+          <label for="" class="workpace">
+            <input type="radio" name="pace" value="satisfactory" (click)="paceChanged($event)"> Satisfactory
+          </label>
+          <label for="" class="workpace">
+            <input type="radio" name="pace" value="slow" (click)="paceChanged($event)"> Slow
+          </label>
+        </div>
+        <div id="homework-container">
+          <h6>Previous H/W Done</h6>
+          <label for="" class="work">
+            <input type="radio" name="homework" value="done" (click)="workChanged($event)"> Done
+          </label>
+          <label for="" class="work">
+            <input type="radio" name="homework" value="partially" (click)="workChanged($event)"> Partially
+          </label>
+          <label for="" class="work">
+            <input type="radio" name="homework" value="notDone" (click)="workChanged($event)"> Not Done
+          </label>
+          <label for="" class="behavior">
+            <input type="checkbox" value="poorQuality" (click)="checkboxes('homeworkQuality',$event)"> only tick if HW quality is poor
+          </label>
+        </div>
+        <div id="time-container">
+          <h6>Punctuality</h6>
+          <label for="" class="punctuality">
+            <input type="radio" name="time" value="onTime" (click)="punctualityChanged( $event)"> On time
+          </label>
+          <label for="" class="punctuality">
+            <input type="number" name="time" value="late" (keyup)="punctualityChanged($event)" (blur)="onBlur($event)" 
+            (click)="punctualityChanged($event)"> Late
+          </label> Understandig is:
+          <label for="" class="behavior">
+            <input type="radio" name="under" value="good" (click)="understanding($event)"> Good
+          </label>
+          <label for="" class="behavior">
+            <input type="radio" name="under" value="average" (click)="understanding($event)"> Avg
+          </label>
+          <label for="" class="behavior">
+            <input type="radio" name="under" value="poor" (click)="understanding($event)"> Poor
+          </label>
+        </div>
+        <div>
+          <h6>Weak Areas / Optional Comments:</h6>
+          <textarea type="text" rows="" cols="75" [(ngModel)]="userComments.optional" value=" " class="form-control mb-2" name="optional"></textarea>
+          <h6>Teacher's Name & Date</h6>
+          <input type="text" class="form-control" [(ngModel)]="userComments.teacherName" name="teacherName">
+          <h6>Updated By</h6>
+          <input type="text" class="form-control mt-1" [(ngModel)]="userComments.updatedBy" name="updated">
+        </div>
+      </ul>
+    </div>
+  </div>
+</form>
+<div class="container mt-2 mb-2">
+  <div class="card card-element">
+    <div class="card-body" id="emp">
+      <span class="myStyle">
+      <strong>
+        <u>{{teacher}}</u>
+      </strong>
+      <span class="{{selectedBehavior}}">{{userComments.behavior}}</span>
+      <span class="{{selectedPace}}">{{userComments?.pace}}</span>
+      <span class="{{selectedWork}}">{{userComments?.work}}</span>
+      <span class="{{selectedPunctuality}}">{{userComments?.punctuality}}</span>
+      <span class="{{selectedCheck}}">{{userComments.concenPoor}}</span>
+      <span class="{{selectedCheck}}">{{userComments.homeworkQuality}}</span>
+      <span class="{{selectedUnder}}">{{userComments.understanding}}</span>
+      <span style="background-color: 	#40E0D0;">{{userComments.optional}}</span>
+      <span>{{userComments.teacherName}}</span>
+      <p class="right">{{userComments.updatedBy}}</p>
+    </span>
+    </div>
+  </div>
+</div>
+<div class="container-button">
+  <button class="btn btn-success" (click)="successCopied()" style="margin: 5px;" type="button">
+    {{changeButton? 'Copy': 'Copied'}}</button>
+  <button class="btn btn-secondary" (click)="resetForm()" style="margin: 5px;">Reset</button>
+</div>
