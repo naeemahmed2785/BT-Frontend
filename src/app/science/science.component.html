@@ -297,36 +297,36 @@
 
 <div class="container mb-5 mt-5">
   <div class="card">
-    <div class="card-body myStyle">
-      <span>{{showComments.parent}}</span>
-      <span class={{selectedprogress}}>{{showComments.progress}}</span>
-      <span>{{showComments.usually}}</span>
-      <span>{{showComments.improve}}</span>
-      <span>{{showComments.askMore}}</span>
-      <span>{{showComments.reading}}</span>
-      <span>{{showComments.notdoing}}</span>
-      <span>{{showComments.affect}}</span>
-      <span>{{showComments.test}}</span>
-      <span>{{showComments.testResults}}</span>
-      <span>{{showComments.pace}}</span>
-      <span>{{showComments.concentration}}</span>
-      <span>{{showComments.talkative}}</span>
-      <span>{{showComments.talkStudent}}</span>
-      <span>{{showComments.speak}}</span>
-      <span>{{showComments.laugh}}</span>
-      <span>{{showComments.tiredness}}</span>
-      <span>{{showComments.behave}}</span>
-      <span>{{showComments.listen}}</span>
-      <span>{{showComments.inappropriate}}</span>
-      <span>{{showComments.misBehave}}</span>
-      <span>{{showComments.attendance}}</span>
-      <span>{{showComments.punctuality}}</span>
-      <span>{{showComments.ability}}</span>
+    <div class="card-body myStyle" id="divComments" *ngFor="let item of studentPTM">
+      <span>{{item.parent}}</span>
+      <span class={{selectedprogress}}>{{item.progress}}</span>
+      <span>{{item.usually}}</span>
+      <span>{{item.improve}}</span>
+      <span>{{item.askMore}}</span>
+      <span>{{item.reading}}</span>
+      <span>{{item.notdoing}}</span>
+      <span>{{item.affect}}</span>
+      <span>{{item.test}}</span>
+      <span>{{item.testResults}}</span>
+      <span>{{item.pace}}</span>
+      <span>{{item.concentration}}</span>
+      <span>{{item.talkative}}</span>
+      <span>{{item.talkStudent}}</span>
+      <span>{{item.speak}}</span>
+      <span>{{item.laugh}}</span>
+      <span>{{item.tiredness}}</span>
+      <span>{{item.behave}}</span>
+      <span>{{item.listen}}</span>
+      <span>{{item.inappropriate}}</span>
+      <span>{{item.misBehave}}</span>
+      <span>{{item.attendance}}</span>
+      <span>{{item.punctuality}}</span>
+      <span>{{item.ability}}</span>
       <div>
-        <span>{{showComments.additional}}</span>
+        <span>{{item.additional}}</span>
       </div>
       <div>
-        <span>{{showComments.parents}}</span>
+        <span>{{item.parents}}</span>
       </div>
       <span>Requesting the parents to sign the diary every week and discuss his class progress with him. Requesting the parents
         about school report.</span>
