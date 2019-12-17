@@ -17,11 +17,11 @@
                   <label>
                     <h6>Subject</h6>
                   </label>
-                  <select class="form-control" type="text" formControlName="chos" >
+                  <select class="form-control" type="text" formControlName="chos">
                     <option selected>Choose...</option>
-                    <option value="1">Biology</option>
-                    <option value="2">Physics</option>
-                    <option value="3">Chemistry</option>
+                    <option value="Biology">Biology</option>
+                    <option value="Physics">Physics</option>
+                    <option value="Chemistry">Chemistry</option>
                   </select>
                 </div>
                 <div class="col-6">
@@ -82,61 +82,61 @@
                 </div>
               </div>
               <div class="row">
-              <div class="col-6">
-                <label style="display: block; padding-left: 0px;">
-                  <h6>Understanding of Knowledge</h6>
-                </label>
-                <input type="radio" name="know">
-                <label>Good</label>
-                <input type="radio" name="know">
-                <label>Average</label>
-                <input type="radio" name="know">
-                <label>Below Average</label>
-                <input type="radio" name="know">
-                <label>Unsatisfactory</label>
+                <div class="col-6">
+                  <label style="display: block; padding-left: 0px;">
+                    <h6>Understanding of Knowledge</h6>
+                  </label>
+                  <input type="radio" name="know">
+                  <label>Good</label>
+                  <input type="radio" name="know">
+                  <label>Average</label>
+                  <input type="radio" name="know">
+                  <label>Below Average</label>
+                  <input type="radio" name="know">
+                  <label>Unsatisfactory</label>
+                </div>
+                <div class="col-6">
+                  <label style="display: block; padding-left: 0px;">
+                    <h6>Apllication of Knowledge</h6>
+                  </label>
+                  <input type="radio" name="app">
+                  <label>Good</label>
+                  <input type="radio" name="app">
+                  <label>Average</label>
+                  <input type="radio" name="app">
+                  <label>Below Average</label>
+                  <input type="radio" name="app">
+                  <label>Unsatisfactory</label>
+                </div>
               </div>
-              <div class="col-6">
-                <label style="display: block; padding-left: 0px;">
-                  <h6>Apllication of Knowledge</h6>
-                </label>
-                <input type="radio" name="app">
-                <label>Good</label>
-                <input type="radio" name="app">
-                <label>Average</label>
-                <input type="radio" name="app">
-                <label>Below Average</label>
-                <input type="radio" name="app">
-                <label>Unsatisfactory</label>
+              <div class="row">
+                <div class="col-6">
+                  <label style="display: block; padding-left: 0px;">
+                    <h6>Maths Skills</h6>
+                  </label>
+                  <input type="radio" name="skill">
+                  <label>Good</label>
+                  <input type="radio" name="skill">
+                  <label>Average</label>
+                  <input type="radio" name="skill">
+                  <label>Below Average</label>
+                  <input type="radio" name="skill">
+                  <label>Unsatisfactory</label>
+                </div>
+                <div class="col-6">
+                  <label style="display: block; padding-left: 0px;">
+                    <h6>Practical Knowledge</h6>
+                  </label>
+                  <input type="radio" name="prac">
+                  <label>Good</label>
+                  <input type="radio" name="prac">
+                  <label>Average</label>
+                  <input type="radio" name="prac">
+                  <label>Below Average</label>
+                  <input type="radio" name="prac">
+                  <label>Unsatisfactory</label>
+                </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="col-6">
-                <label style="display: block; padding-left: 0px;">
-                  <h6>Maths Skills</h6>
-                </label>
-                <input type="radio" name="skill">
-                <label>Good</label>
-                <input type="radio" name="skill">
-                <label>Average</label>
-                <input type="radio" name="skill">
-                <label>Below Average</label>
-                <input type="radio" name="skill">
-                <label>Unsatisfactory</label>
-              </div>
-              <div class="col-6">
-                <label style="display: block; padding-left: 0px;">
-                  <h6>Practical Knowledge</h6>
-                </label>
-                <input type="radio" name="prac">
-                <label>Good</label>
-                <input type="radio" name="prac">
-                <label>Average</label>
-                <input type="radio" name="prac">
-                <label>Below Average</label>
-                <input type="radio" name="prac">
-                <label>Unsatisfactory</label>
-              </div>
-            </div>
               <div class="form-group col-12 text-right">
                 <button class="btn btn-danger" type="button" (click)="removeContact(i)"> Remove </button>
               </div>
@@ -179,7 +179,6 @@
       </label>
     </div>
   </div>
-  </div> 
 <!-- improve-container end-->
 <div class="concentration-container">
   <div class="radion-container">
@@ -285,53 +284,64 @@
   <h6>Additional Comments</h6>
 </label>
 <div class="additional-container">
-  <textarea type="text" rows="" cols="75" value="Note" [(ngModel)]="showComments.additional" class="form-control mb-2" name="optional">
+  <textarea type="text" rows="" cols="75" value="Note" [(ngModel)]="commentShown.additional" class="form-control mb-2" name="optional">
         </textarea>
   <label>
     <h6>Parents Remarks:</h6>
   </label>
-  <textarea type="text" rows="" cols="75" value="Note" [(ngModel)]="showComments.parents" class="form-control mb-2" name="optional">
+  <textarea type="text" rows="" cols="75" value="Note" [(ngModel)]="commentShown.parents" class="form-control mb-2" name="optional">
             </textarea>
 </div>
+</div>
+
 <!--additainali end -->
 
 <div class="container mb-5 mt-5">
   <div class="card">
     <div class="card-body myStyle">
-      <span>{{showComments.parent}}</span>
-      <span class={{selectedprogress}}>{{showComments.progress}}</span>
-      <span>{{showComments.usually}}</span>
-      <span>{{showComments.improve}}</span>
-      <span>{{showComments.askMore}}</span>
-      <span>{{showComments.reading}}</span>
-      <span>{{showComments.notdoing}}</span>
-      <span>{{showComments.affect}}</span>
-      <span>{{showComments.test}}</span>
-      <span>{{showComments.testResults}}</span>
-      <span>{{showComments.pace}}</span>
-      <span>{{showComments.concentration}}</span>
-      <span>{{showComments.talkative}}</span>
-      <span>{{showComments.talkStudent}}</span>
-      <span>{{showComments.speak}}</span>
-      <span>{{showComments.laugh}}</span>
-      <span>{{showComments.tiredness}}</span>
-      <span>{{showComments.behave}}</span>
-      <span>{{showComments.listen}}</span>
-      <span>{{showComments.inappropriate}}</span>
-      <span>{{showComments.misBehave}}</span>
-      <span>{{showComments.attendance}}</span>
-      <span>{{showComments.punctuality}}</span>
-      <span>{{showComments.ability}}</span>
+      <div id="divComments" *ngFor="let item of studentPTM">
+        <span>{{item.parent}}</span>
+        <span>{{item.topic}}</span>
+        <span>{{item.progress}}</span>
+        <span>{{item.usually}}</span>
+        <span>{{item.test}}</span>
+        <span>{{item.testResults}}</span>
+      </div>
+      <span>{{commentShown.improve}}</span>
+
+      <span>{{commentShown.askMore}}</span>
+      <span>{{commentShown.reading}}</span>
+      <span>{{commentShown.notdoing}}</span>
+      <span>{{commentShown.affect}}</span>
+      <span>{{commentShown.test}}</span>
+      <span>{{commentShown.concentration}}</span>
+      <span>{{commentShown.talkative}}</span>
+      <span>{{commentShown.talkStudent}}</span>
+      <span>{{commentShown.speak}}</span>
+      <span>{{commentShown.laugh}}</span>
+      <span>{{commentShown.tiredness}}</span>
+      <span>{{commentShown.behave}}</span>
+      <span>{{commentShown.listen}}</span>
+      <span>{{commentShown.inappropriate}}</span>
+      <span>{{commentShown.misBehave}}</span>
+      <span>{{commentShown.attendance}}</span>
+      <span>{{commentShown.punctuality}}</span>
+      <span>{{commentShown.ability}}</span>
       <div>
-        <span>{{showComments.additional}}</span>
+        <span>{{commentShown.additional}}</span>
       </div>
       <div>
-        <span>{{showComments.parents}}</span>
+        <span>{{commentShown.parents}}</span>
       </div>
-      <span>Requesting the parents to sign the diary every week and discuss his class progress with him. Requesting the parents
-        about school report.</span>
-      <span> Parent was thankful to science department on informing the child Science progress !!</span>
+      <span>Requesting the parents to sign the diary every week and discuss his class progress with him. Requesting the parents about
+          school report.</span>
+        <span> Parent was thankful to science department on informing the child Science progress !!</span>
     </div>
+  </div>
+
+
+  <div class="card-body myStyle">
+    
   </div>
   <div class="container-button mt-0">
     <button class="btn btn-success" (click)="successCopied()" style="margin: 5px;" type="button">

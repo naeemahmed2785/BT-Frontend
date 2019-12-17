@@ -67,14 +67,17 @@ export class Comments {
     parent: string;
     progress: string;
     usually: string;
+    testResults: string;
+    pace: string;
+    topic: string;
+}
+export class Show extends Comments {
     improve: string;
     askMore: string;
     reading: string;
     notdoing: string;
     affect: string;
     test: string;
-    testResults: string;
-    pace: string;
     concentration: string;
     talkative: string;
     talkStudent: string;
