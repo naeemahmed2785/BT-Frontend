@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { MathsComponent } from '../app/maths/maths.component';
 import { ScienceComponent } from 'src/app/science/science.component';
-import { PtmComponent } from 'src/app/maths/ptm/ptm.component';
+import { RegisterStudentComponent } from './registerStudent/register-student.component';
+import { SearchStudentComponent } from './searchstudent/searchstudent.component';
+import { TeachercommentComponent } from './maths/teacherComment/teachercomment.component';
 
 const routes: Routes = [
-  {path: "maths", component: MathsComponent},
   {path: "science", component: ScienceComponent},
-  {path: "ptm", component: PtmComponent}
+  {path: "newStudent", component: RegisterStudentComponent},
+  {path: "search", component: SearchStudentComponent},
+  {path: 'teacher/:ref/:id/:heading', component: TeachercommentComponent},
 
 ];
 

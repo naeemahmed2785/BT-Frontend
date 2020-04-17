@@ -1,0 +1,56 @@
+<div class="container">
+  <div style="text-align:center">
+    <h1>
+      {{ heading }}
+    </h1>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">
+      <div class="form-group">
+        <label>Ref Number</label>
+        <input type="text" class="form-control" [(ngModel)]="refNumber" placeholder="Ref Number">
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="form-group">
+        <label for="lastName">First & Last Name</label>
+        <select class="form-control" [(ngModel)]="teacherComments.selectedStudentId" (change)="onChangeStudent()">
+          <option *ngFor="let s of students"[value]="s.ID">
+            {{s.Name}}
+            {{s.ID}}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="form-group">
+        <label for="lastName">Subject</label>
+        <select class="form-control" [(ngModel)]="teacherComments.selectedSubjectId" (change)="onChangeSubject()">
+          <option value="0" >Select Subject ---</option>
+          <option *ngFor="let s of subjects"[value]="s.SubjectId">
+            {{s.SubjectName}}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="form-group">
+        <label>Type</label>
+        <select class="form-control" [(ngModel)]="selectedQuestionaireId"
+         (change)="onChangeQuestionaireType()">
+          <option value="0" >Select Type ---</option>
+          <option *ngFor="let c of listOfQuestionaire;"[value]="c.ID">
+            {{c.Type}}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div *ngIf="questionaire.length > 0" class="container">
+      <dynamic-form-builder (onSubmit)="onSubmit($event)" [fields]="questionaire">
+      </dynamic-form-builder>
+      <div>
+        <p>{{results}}</p>
+      </div>
+    </div>
+  </div>
+</div>

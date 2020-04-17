@@ -1,0 +1,71 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <form action="">
+        <div class="row">
+          <div class="col-sm-4 form-group">
+            <label>Ref Number</label>
+            <input type="text" class="form-control" [(ngModel)]="regStudent.refNumber" name="refNumber">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4 form-group">
+            <label>First Name</label>
+            <input type="text" class="form-control" [(ngModel)]="regStudent.firstName" name="firstName">
+          </div>
+          <div class="col-sm-4 form-group">
+            <label>Last Name</label>
+            <input type="text" class="form-control" [(ngModel)]="regStudent.lastName" name="lastName">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4 form-group">
+            <label>Year</label>
+            <input type="text" class="form-control" [(ngModel)]="regStudent.year" name="year">
+          </div>
+          <div class="col-sm-4 form-group">
+            <label>Gender</label>
+            <input type="text" class="form-control" [(ngModel)]="regStudent.gender" name="year">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4 form-group">
+            <div class="" *ngFor=" let sub of subjects;">
+              <input type="checkbox"
+               value="{{sub.ID}}"
+                (change)="checkBoxes($event)">
+             <label class="col-sm-4">{{sub.SubjectName}}</label> 
+            </div>
+        </div>
+        </div>
+      
+          
+          <!-- <div class="col-sm-4 form-group">
+            <label>Subject</label>
+            <input type="text" class="form-control" [(ngModel)]="regStudent.subject" name="subject">
+            <option *ngFor="let name of regStudent" [value]="name.SubjectName" >
+              {{name.SubjectName}}
+            </option>
+          </div> -->
+          <!-- Default checked -->
+
+
+          
+       
+        <div class="row">
+          <div class="col-sm-4 form-group">
+            <label>Restart Date</label>
+            <input type="date" class="form-control"[(ngModel)]="regStudent.date" name="date">
+          </div>
+          <div class="col-sm-4 form-group">
+            <label>Choose A File</label>
+            <input type="file" class=form-control-file>
+          </div>
+        </div>
+        <div>
+          <button type="submit" class="btn btn-success" (click)="regNewStudentFunction()">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

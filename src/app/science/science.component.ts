@@ -12,11 +12,9 @@ export class ScienceComponent implements OnInit {
   showComments: Comments = new Comments();
   commentShown : Show = new Show();
   changeButton: any = true;
-  selectedprogress = " ";
+  selectedprogress = ' ';
   localTopic = 'improvehomework';
-  studentPTM: Array<any>= [];
-  student: Array<any>= [];
-
+  studentPTM = new Array<any>();
 
   public contactList: FormArray;
   public form: FormGroup;
@@ -47,8 +45,8 @@ export class ScienceComponent implements OnInit {
   onChanges(): void{
     const name = this.form.value;
     console.log(' actual array', name)
-    this.student.push(name);
-    const filter = this.student.map(item => {
+    this.studentPTM.push(name);
+    const filter = this.studentPTM.map(item => {
          return item.contacts[0].topic;
       })
       console.log('Filter Araay',filter);
@@ -94,15 +92,15 @@ export class ScienceComponent implements OnInit {
     this.contactList.push(this.createContact());
     this.showComments = new Comments();
   }
-  callingFunction(){
-    this.studentPTM = this.form.value;
-    console.log("Array : ",this.studentPTM)
+  callingFunction() {
+    // this.studentPTM = this.form.value;
+    console.log('Array : ', JSON.stringify(this.studentPTM));
   }
 
     getComments(value, topic): string {
     const filtered = data[topic].filter(item => {
-      return item.state === value || item.state == 'name';
-    })
+      return item.state === value || item.state === 'name';
+    });
     return filtered[0].description;
   }
 
@@ -110,27 +108,27 @@ export class ScienceComponent implements OnInit {
     this.contactList.removeAt(index);
   }
   childName(event) {
-    let state = event.target.value;
-    let localTopic = 'childName'
+    const state = event.target.value;
+    const localTopic = 'childName';
     this.showComments.parent = this.getComments(state, localTopic);
-    let str = this.showComments.parent;
-    let findStr = /xxx/gi;
-    let newStr = str.replace(findStr, state);
+    const str = this.showComments.parent;
+    const findStr = /xxx/gi;
+    const newStr = str.replace(findStr, state);
     this.showComments.parent = newStr;
   }
   onBlur(event) {
-    let value = event.target.value = "";
+    const value = event.target.value = '';
   }
   progress(event) {
-    let value = event.target.value;
-    let localTopic = 'progress';
+    const value = event.target.value;
+    const localTopic = 'progress';
     this.showComments.progress = this.getComments(value, localTopic);
     this.selectedprogress = value;
   }
 
   usually(event) {
-    let value = event.target.value;
-    let localTopic = 'usually';
+    const value = event.target.value;
+    const localTopic = 'usually';
     this.showComments.usually = this.getComments(value, localTopic);
   }
   improveHomework(propName, event) {
@@ -146,29 +144,29 @@ export class ScienceComponent implements OnInit {
     }
   }
   testResults(event) {
-    let value = event.target.value;
-    let localTopic = 'testResults';
-    this.showComments.testResults = this.getComments(value, localTopic)
+    const value = event.target.value;
+    const localTopic = 'testResults';
+    this.showComments.testResults = this.getComments(value, localTopic);
   }
   testPace(event) {
-    let value = event.target.value;
-    let localTopic = 'testPace';
-    this.showComments.pace = this.getComments(value, localTopic)
+    const value = event.target.value;
+    const localTopic = 'testPace';
+    this.showComments.pace = this.getComments(value, localTopic);
   }
   concentrationBehave(prop, event) {
-    let check = this.showComments[prop] = event.target.checked;
+    const check = this.showComments[prop] = event.target.checked;
     if (check === false) {
-      return this.showComments[prop] = " ";
+      return this.showComments[prop] = ' ';
     } else {
-      let value = event.target.value;
-      let localTopic = 'concentrationBehave';
+      const value = event.target.value;
+      const localTopic = 'concentrationBehave';
       this.showComments[prop] = this.getComments(value, localTopic);
     }
 
   }
   overallPerformance(propName, event) {
-    let value = event.target.value;
-    let local = "overall";
+    const value = event.target.value;
+    const local = 'overall';
     this.showComments[propName] = this.getComments(value, local);
   }
   copyToClipboard() {
@@ -179,7 +177,7 @@ export class ScienceComponent implements OnInit {
     this.changeButton = !this.changeButton;
   }
   successCopied() {
-    this.changeText()
+    this.changeText();
   }
   resetForm() {
     window.location.reload();

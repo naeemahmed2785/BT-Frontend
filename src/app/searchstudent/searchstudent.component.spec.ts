@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PtmComponent } from './ptm.component';
+import { SearchstudentComponent } from './searchstudent.component';
 
-describe('PtmComponent', () => {
-  let component: PtmComponent;
-  let fixture: ComponentFixture<PtmComponent>;
+describe('SearchstudentComponent', () => {
+  let component: SearchstudentComponent;
+  let fixture: ComponentFixture<SearchstudentComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PtmComponent ]
+      declarations: [ SearchstudentComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PtmComponent);
+    fixture = TestBed.createComponent(SearchstudentComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

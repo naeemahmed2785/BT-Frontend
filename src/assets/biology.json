@@ -1,0 +1,225 @@
+[
+    {
+        "type": "radio",
+        "name": "homeworkProgress",
+        "label": "H.W Progress",
+        "value": "",
+        "required": true,
+        "options": [
+            {
+                "key": "done",
+                "label": "Done"
+            },
+            {
+                "key": "notdone",
+                "label": "Not Done"
+            },
+            {
+                "key": "incomplete",
+                "label": "Incomplete"
+            }
+        ]
+    },
+    {
+        "type": "radio",
+        "name": "homeworkQuality",
+        "label": "H.W Quality",
+        "value": "",
+        "required": true,
+        "options": [
+            {
+                "key": "good",
+                "label": "Good"
+            },
+            {
+                "key": "satisfactory",
+                "label": "Satisfactory"
+            },
+            {
+                "key": "unsatisfactory",
+                "label": "Unsatisfactory"
+            }
+        ]
+    },
+    {
+        "type": "radio",
+        "name": "testResult",
+        "label": "Test Results",
+        "value": "",
+        "required": true,
+        "options": [
+            {
+                "key": "good",
+                "label": "Good"
+            },
+            {
+                "key": "average",
+                "label": "Average"
+            },
+            {
+                "key": "belowAverage",
+                "label": "Below Average"
+            },
+            {
+                "key": "unsatisfactory",
+                "label": "Unsatisfoctory"
+            }
+        ]
+    },
+    {
+        "type": "radio",
+        "name": "testPace",
+        "label": "Test Pace",
+        "value": "",
+        "required": true,
+        "options": [
+            {
+                "key": "good",
+                "label": "Good"
+            },
+            {
+                "key": "satisfactory",
+                "label": "Satisfactory"
+            },
+            {
+                "key": "slow",
+                "label": "Slow"
+            }
+        ]
+    },
+            
+            {
+                "type": "radio",
+                "name": "understandingofKnowledge",
+                "label": "Understanding of Knowledge",
+                "value": "",
+                "required": true,
+                "options": [
+                    {
+                        "key": "good",
+                        "label": "Good"
+                    },
+                    {
+                        "key": "average",
+                        "label": "Average"
+                    },
+                    {
+                        "key": "belowAverage",
+                        "label": "Below Average"
+                    },
+                    {
+                        "key": "unsatisfactory",
+                        "label": "Unsatisfoctory"
+                    }
+                ]
+            },
+            {
+                "type": "radio",
+                "name": "applicationofKnowledge",
+                "label": "Application of Knowledge",
+                "value": "",
+                "required": true,
+                "options": [
+                    {
+                        "key": "good",
+                        "label": "Good"
+                    },
+                    {
+                        "key": "average",
+                        "label": "Average"
+                    },
+                    {
+                        "key": "belowAverage",
+                        "label": "Below Average"
+                    },
+                    {
+                        "key": "unsatisfactory",
+                        "label": "Unsatisfoctory"
+                    }
+                ]
+            },
+            {
+                "type": "radio",
+                "name": "mathskills",
+                "label": "Maths Skills",
+                "value": "",
+                "required": true,
+                "options": [
+                    {
+                        "key": "good",
+                        "label": "Good"
+                    },
+                    {
+                        "key": "average",
+                        "label": "Average"
+                    },
+                    {
+                        "key": "belowAverage",
+                        "label": "Below Average"
+                    },
+                    {
+                        "key": "unsatisfactory",
+                        "label": "Unsatisfoctory"
+                    }
+                ]
+            },
+            {
+                "type": "radio",
+                "name": "practicalKnowledge",
+                "label": "Practical Knowledge",
+                "value": "",
+                "required": true,
+                "options": [
+                    {
+                        "key": "good",
+                        "label": "Good"
+                    },
+                    {
+                        "key": "average",
+                        "label": "Average"
+                    },
+                    {
+                        "key": "belowAverage",
+                        "label": "Below Average"
+                    },
+                    {
+                        "key": "unsatisfactory",
+                        "label": "Unsatisfoctory"
+                    }
+                ]
+            },
+            {
+                "type": "checkbox",
+                "name": "improve",
+                "label": "Can Improve hos Homework",
+                "required": true,
+                "options": [
+                    {
+                        "key": "revising",
+                        "label": "Revising the Content"
+                    },
+                    {
+                        "key": "askMore",
+                        "label": "Ask More Questions"
+                    },
+                    {
+                        "key": "reading",
+                        "label": "Reading th Questions Carefully"
+                    },
+                    {
+                        "key": "notdoing",
+                        "label": "Not Doing Homework"
+                    },
+                    {
+                        "key": "affect",
+                        "label": "Affect on Class and Test Progress"
+                    },
+                    {
+                        "key": "testRelated",
+                        "label": "Test Related Topics"
+                    }
+                ]
+            }
+    
+    
+]

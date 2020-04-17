@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="form-group col-sm-6">
+    <label for="firstName">Ref Number</label>
+    <input type="text" (blur)="searchNameById($event)" [(ngModel)]="studentRef" class="form-control"
+     placeholder="Ref Number">
+  </div>
+  <div class="form-group col-sm-6">
+    <label for="lastName">First & Last Name</label>
+     <select  class="form-control"  [(ngModel)]="studentId" name="" (change)="selectedID($event)" >
+       <option value="" disabled >Choose a Name</option>
+           <option [value]="name.ID" >
+      {{name.Name}}
+    </option>
+  </select>
+  </div>
+</div>

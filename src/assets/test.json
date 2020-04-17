@@ -1,0 +1,126 @@
+[
+    {
+        "type": "radio",
+        "name": "behaviour",
+        "label": "Today Behaviour",
+        "value": "",
+        "required": true,
+        "options": [
+            {
+                "key": "His behaviour was good today",
+                "label": "Good"
+            },
+            {
+                "key": "His behaviour was satisfactory",
+                "label": "satisfactory"
+            },
+            {
+                "key": "His behaviour was unstaisfactory today",
+                "label": "unsatisfactory"
+            }
+        ]
+    },
+    {
+        "type": "radio",
+        "name": "workpace",
+        "label": "Today WorkPace",
+        "value": "",
+        "required": true,
+        "options": [
+            {
+                "key": "Good",
+                "label": "Good"
+            },
+            {
+                "key": "satisfactory",
+                "label": "satisfactory"
+            },
+            {
+                "key": "slow",
+                "label": "slow"
+            }
+        ]
+    },
+    {
+        "type": "radio",
+        "name": "homework",
+        "label": "Previous Homework",
+        "value": "",
+        "required": true,
+        "options": [
+            {
+                "key": "Done",
+                "label": "Done"
+            },
+            {
+                "key": "Partially",
+                "label": "Partially"
+            },
+            {
+                "key": "Notdone",
+                "label": "NotDone"
+            }
+        ]
+    },
+    {
+        "type": "radio",
+        "name": "Understanding",
+        "label": "Understanding",
+        "value": "in",
+        "required": true,
+        "options": [
+            {
+                "key": "Good",
+                "label": "Good"
+            },
+            {
+                "key": "Average",
+                "label": "Average"
+            },
+            {
+                "key": "Poor",
+                "label": "Poor"
+            }
+        ]
+    },
+    {
+        "type": "radio",
+        "name": "Puntuality",
+        "label": "Puntuality",
+        "value": "in",
+        "required": true,
+        "options": [
+            {
+                "key": "Ontime",
+                "label": "OnTime"
+            },
+            {
+                "key": "Late",
+                "label": "Late"
+            }
+        ]
+    },
+    {
+        "type": "checkbox",
+        "name": "hobby",
+        "label": "Hobby",
+        "required": true,
+        "options": [
+            {
+                "key": "poor",
+                "label": "Tick if Concentration is poor"
+            },
+            {
+                "key": "hwPoor",
+                "label": "only tick if HW quality is poor"
+            }
+        ]
+    },
+    {
+        "type": "text",
+        "name": "optional",
+        "label": "Optional Comments",
+        "value": "",
+        "required": true
+      }
+]

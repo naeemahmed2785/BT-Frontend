@@ -42,19 +42,14 @@ export class CommentsType {
     work: string;
     punctuality: string;
     optional: string;
-    teacherName= ' '+ '';
+    teacherName: string;
     understanding: string;
     concenPoor: string;
     homeworkQuality: string;
-    updatedBy= ' Updated By: ';
+    updatedBy: string;
 }
 
-export function getClass(statuss: string) {
-    if (status === 'good') {
-        return '';
-    }
 
-}
 
 export class StatusMap {
     good: 'good-behaviour';
