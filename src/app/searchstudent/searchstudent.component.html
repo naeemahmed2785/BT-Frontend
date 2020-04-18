@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <div class="card">
+      <div class="card mt-2">
         <div class="card-header">
           <div class="row">
             <div class="col form-group">
@@ -40,7 +40,7 @@
            <tbody>
              <tr *ngFor="let x of gotStudentsData">
                <td>{{x.RefNumber}}</td>
-               <td>{{x.FirstName + ' ' + x.LastName}}</td>
+               <td><a [routerLink]="['/viewStudent', x.RefNumber, x.ID[0]]">{{x.FirstName + ' ' + x.LastName}}</a></td>
                <td>{{x.Year}}</td>
                <td>{{x.Subjects}}</td>
                <td><a [routerLink]="['/teacher', x.RefNumber, x.ID[0], 'Student Teacher Comments']" type="button" class="btn btn-primary">Teacher</a></td>

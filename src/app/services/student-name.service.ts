@@ -47,6 +47,9 @@ export class StudentNameService {
   saveTeacherComment(obj) {
     return this.http.post<any>(this.apiUrl + 'saveteachercomment/', obj)
   }
+  viewStudentByRef(ref){
+    return this.http.get(this.apiUrl + 'viewstudent/' + ref)
+  }
 
 }
 

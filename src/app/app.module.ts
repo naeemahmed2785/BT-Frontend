@@ -13,6 +13,7 @@ import { RegisterStudentComponent } from './registerStudent/register-student.com
 import { SearchStudentComponent } from './searchstudent/searchstudent.component';
 import { TeachercommentComponent } from './maths/teacherComment/teachercomment.component';
 import { DynamicFormBuilderModule } from './dynamicForms/dynamic-form-builder.module';
+import { ViewstudentComponent } from './student/viewstudent/viewstudent.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { DynamicFormBuilderModule } from './dynamicForms/dynamic-form-builder.mo
     RegisterStudentComponent,
     SearchStudentComponent,
     TeachercommentComponent,
+    ViewstudentComponent,
    
   ],
   imports: [

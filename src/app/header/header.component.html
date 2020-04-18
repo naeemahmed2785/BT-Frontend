@@ -7,10 +7,13 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a routerLink="/newStudent" class="nav-link text-white">NewStudent</a>
+        <a routerLink="#" class="nav-link text-white">Manage Forms</a>
       </li>
-      <li class="nav-item">
-        <a routerLink="/science" class="nav-link text-white">Science</a>
+      <li class="dropdown nav-item">
+        <a class="text-white dropbtn">Students</a>
+        <div class="dropdown-content">
+          <a routerLink="/newStudent" >New Student</a>
+        </div>
       </li>
       <li class="nav-item">
         <a routerLink="/search" class="nav-link text-white">Search</a>
@@ -20,6 +23,9 @@
         <div class="dropdown-content">
           <a routerLink="#">PTM Due</a>
         </div>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/science" class="nav-link text-white">Science</a>
       </li>
     </ul>
   </div>

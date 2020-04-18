@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="card mt-2" >
+        <div class="card-header">
+            <div class="row" *ngFor="let s of student;">
+              <div class="col form-group">
+                <label>Ref Number</label>
+                <h5>{{refNumber}}</h5>
+              </div>
+              <div class="col-sm-3 form-group">
+                <label class="">Student Name</label>
+                <h5>{{s.FirstName + ' ' + s.LastName}}</h5>
+              </div>
+              <div class="col form-group">
+                <label>Subjects</label>
+                <h5>{{s.subjects}}</h5>
+              </div>
+              <div class="col form-group">
+                <label>Year</label>
+                <h5>{{s.Year}}</h5>
+              </div>
+              <div class="col form-group">
+                <label>Admission Date</label>
+                <h5>{{s.AdmDate  | date  :  "dd/MM/yyyy"}}</h5>
+              </div>
+              <p>{{s.Comments}}</p>
+            </div>
+        </div>
+          <ul class="list-group list-group-flush" *ngFor="let c of studentComments">
+            <li class="list-group-item">
+              <h6>Teacher Comments: <span><h6>{{c.SubjectName}}</h6></span></h6>
+              {{c.Comments}} {{c.CreatedDate | date: "dd/MM/yyyy"}}
+            </li>
+          </ul>
+        <div class="card-footer">
+          <button class="bg bg-print">Print</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
