@@ -14,7 +14,10 @@ export class ScienceComponent implements OnInit {
   changeButton: any = true;
   selectedprogress = ' ';
   localTopic = 'improvehomework';
-  studentPTM = new Array<any>();
+  studentPTM: Array<any>= [];
+
+  student: Array<any>= [];
+
 
   public contactList: FormArray;
   public form: FormGroup;
