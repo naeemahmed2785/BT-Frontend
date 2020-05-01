@@ -1,38 +1,57 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <div class="card mt-2" >
+      <div class="card mt-2">
         <div class="card-header">
-            <div class="row" *ngFor="let s of student;">
-              <div class="col form-group">
-                <label>Ref Number</label>
-                <h5>{{refNumber}}</h5>
-              </div>
-              <div class="col-sm-3 form-group">
-                <label class="">Student Name</label>
-                <h5>{{s.FirstName + ' ' + s.LastName}}</h5>
-              </div>
-              <div class="col form-group">
-                <label>Subjects</label>
-                <h5>{{s.subjects}}</h5>
-              </div>
-              <div class="col form-group">
-                <label>Year</label>
-                <h5>{{s.Year}}</h5>
-              </div>
-              <div class="col form-group">
-                <label>Admission Date</label>
-                <h5>{{s.AdmDate  | date  :  "dd/MM/yyyy"}}</h5>
-              </div>
-              <p>{{s.Comments}}</p>
+          <div class="row" *ngFor="let s of students">
+            <div class="col form-group">
+              <label>Ref Number</label>
+              <h5>{{ refNumber }}</h5>
             </div>
+            <div class="col-sm-3 form-group">
+              <label class="">Student Name</label>
+              <h5>{{ s.FirstName + " " + s.LastName }}</h5>
+            </div>
+            <div class="col form-group">
+              <label>Subjects</label>
+              <h5>{{ s.subjects }}</h5>
+            </div>
+            <div class="col form-group">
+              <label>Year</label>
+              <h5>{{ s.Year }}</h5>
+            </div>
+            <div class="col form-group">
+              <label>Admission Date</label>
+              <h5>{{ s.AdmDate | date: "dd/MM/yyyy" }}</h5>
+            </div>
+            <p>{{ s.Comments }}</p>
+          </div>
         </div>
-          <ul class="list-group list-group-flush" *ngFor="let c of studentComments">
-            <li class="list-group-item">
-              <h6>Teacher Comments: <span><h6>{{c.SubjectName}}</h6></span></h6>
-              {{c.Comments}} {{c.CreatedDate | date: "dd/MM/yyyy"}}
-            </li>
-          </ul>
+        <ul class="list-group list-group-flush" *ngFor="let student of StudentRecords">
+          <li class="list-group-item" *ngIf="student.hasOwnProperty('Comments')">
+            <h6>Teacher Comments:</h6>
+            {{ student.Comments }}
+            <strong>{{ student.CreatedDate | date: "dd/MM/yyyy" }}</strong>
+          </li>
+          <div class="table-responsive">
+            <table class="table" *ngIf="student.hasOwnProperty('Book')">
+              <tbody>
+                <tr class="text-center">
+                  <td class="border-right" style="width: 90px;">{{ student.Book }}</td>
+                  <td class="border-right" style="width: 90px;">{{ student.TestNumber }}</td>
+                  <td class="border-right" style="width: 90px;">{{ student.TestAttempt }}</td>
+                  <td class="border-right" style="width: 90px;">
+                    {{ student.CreatedDate | date: "dd/MM/yyyy" }}
+                  </td>
+                  <td class="border-right" style="width: 90px;">{{ student.Marks }}</td>
+                  <td class="border-right" style="width: 90px;">{{ student.Result }}</td>
+                  <td class="border-right" style="width: 90px;">{{ student.Teacher }}</td>
+                  <td style="width: 90px;">{{ student.UpdateBy }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </ul>
         <div class="card-footer">
           <button class="bg bg-print">Print</button>
         </div>

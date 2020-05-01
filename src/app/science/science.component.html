@@ -4,8 +4,8 @@
       <label>
         <h6>Student Name</h6>
       </label>
-      <input type="text" class="form-control" name="inputValue" formControlName="name" (click)="childName($event)" (keyup)="childName($event)"
-        (click)="onBlur($event)">
+      <input type="text" class="form-control" name="inputValue" formControlName="name" (click)="childName($event)"
+        (keyup)="childName($event)" (click)="onBlur($event)">
     </div>
     <div id="science-container">
       <div formArrayName="contacts">
@@ -160,138 +160,160 @@
     </label>
     <div class="improve">
       <label class="label-middle">
-        <input type="checkbox" value="revising" (click)="improveHomework('improve',$event)"> Revising the content at Home
+        <input type="checkbox" value="revising" (click)="improveHomework('improve',$event)"> Revising the content at
+        Home
       </label>
       <label class="label-middle">
-        <input type="checkbox" value="askmore" (click)="improveHomework('askMore',$event)"> Ask More Questions in the Lesson
+        <input type="checkbox" value="askmore" (click)="improveHomework('askMore',$event)"> Ask More Questions in the
+        Lesson
       </label>
       <label class="label-middle">
-        <input type="checkbox" value="reading" (click)="improveHomework('reading',$event)"> Reading the Questions Carefully
+        <input type="checkbox" value="reading" (click)="improveHomework('reading',$event)"> Reading the Questions
+        Carefully
       </label>
       <label class="label-middle">
         <input type="checkbox" value="notdoing" (click)="improveHomework('notdoing',$event)"> Not doing homeWork
       </label>
       <label class="label-middle">
-        <input type="checkbox" value="affect" (click)="improveHomework('affect',$event)"> Affect on class and test Progress
+        <input type="checkbox" value="affect" (click)="improveHomework('affect',$event)"> Affect on class and test
+        Progress
       </label>
       <label class="label-middle">
         <input type="checkbox" value="test" (click)="improveHomework('test',$event)"> Test Related Topic
       </label>
     </div>
   </div>
-<!-- improve-container end-->
-<div class="concentration-container">
-  <div class="radion-container">
-    <label>
-      <h6>Class Concentration</h6>
-    </label>
-    <label for="">
-      <input type="radio" name="concen" value="good" (change)="concentrationBehave('concentration', $event)"> Good
-    </label>
-    <label for="">
-      <input type="radio" name="concen" value="satisfactory" (change)="concentrationBehave('concentration', $event)"> Satisfactory
-    </label>
+  <!-- improve-container end-->
+  <div class="concentration-container">
+    <div class="radion-container">
+      <label>
+        <h6>Class Concentration</h6>
+      </label>
+      <label for="">
+        <input type="radio" name="concen" value="good" (change)="concentrationBehave('concentration', $event)"> Good
+      </label>
+      <label for="">
+        <input type="radio" name="concen" value="satisfactory" (change)="concentrationBehave('concentration', $event)">
+        Satisfactory
+      </label>
+    </div>
+    <div class="con-checkboxes">
+      <label>
+        <h6>Unsatisfactory</h6>
+      </label>
+      <label>
+        <input type="checkbox" name="concentration" value="talkative" (click)="concentrationBehave('talkative',$event)">
+        Talkative</label>
+      <label>
+        <input type="checkbox" name="concentration" value="students"
+          (click)="concentrationBehave('talkStudent',$event)"> Talkative Other Tables</label>
+      <label>
+        <input type="checkbox" name="concentration" value="loudly" (click)="concentrationBehave('speak',$event)"> Speaks
+        Loudly</label>
+      <label>
+        <input type="checkbox" name="concentration" value="laughs" (click)="concentrationBehave('laugh',$event)"> Laughs
+        During Lesson</label>
+      <label>
+        <input type="checkbox" name="concentration" value="tired" (click)="concentrationBehave('tiredness',$event)">
+        Tired During Lesson</label>
+    </div>
   </div>
-  <div class="con-checkboxes">
-    <label>
-      <h6>Unsatisfactory</h6>
-    </label>
-    <label>
-      <input type="checkbox" name="concentration" value="talkative" (click)="concentrationBehave('talkative',$event)"> Talkative</label>
-    <label>
-      <input type="checkbox" name="concentration" value="students" (click)="concentrationBehave('talkStudent',$event)"> Talkative Other Tables</label>
-    <label>
-      <input type="checkbox" name="concentration" value="loudly" (click)="concentrationBehave('speak',$event)"> Speaks Loudly</label>
-    <label>
-      <input type="checkbox" name="concentration" value="laughs" (click)="concentrationBehave('laugh',$event)"> Laughs During Lesson</label>
-    <label>
-      <input type="checkbox" name="concentration" value="tired" (click)="concentrationBehave('tiredness',$event)"> Tired During Lesson</label>
+  <div class="behaviour-container">
+    <div class="radio-container">
+      <label>
+        <h6>Class Behaviour</h6>
+      </label>
+      <label for="">
+        <input type="radio" name="behav" value="behavegood" (change)="concentrationBehave('behave', $event)"> Good
+      </label>
+      <label for="">
+        <input type="radio" name="behav" value="behavesatisfactory" (change)="concentrationBehave('behave', $event)">
+        Satisfactory
+      </label>
+    </div>
+    <div class="behave-checkboxes">
+      <label>
+        <h6>Unsatisfactory</h6>
+      </label>
+      <label>
+        <input type="checkbox" value="notlisten" (click)="concentrationBehave('listen',$event)"> Listen</label>
+      <label>
+        <input type="checkbox" value="language" (click)="concentrationBehave('inappropriate',$event)"> Language</label>
+      <label>
+        <input type="checkbox" value="misbehave" (click)="concentrationBehave('misBehave',$event)"> Misbehave</label>
+    </div>
   </div>
-</div>
-<div class="behaviour-container">
-  <div class="radio-container">
-    <label>
-      <h6>Class Behaviour</h6>
-    </label>
-    <label for="">
-      <input type="radio" name="behav" value="behavegood" (change)="concentrationBehave('behave', $event)"> Good
-    </label>
-    <label for="">
-      <input type="radio" name="behav" value="behavesatisfactory" (change)="concentrationBehave('behave', $event)"> Satisfactory
-    </label>
+  <div class="overall-container">
+    <div class="attendance-container">
+      <label>
+        <h6>Attendance</h6>
+      </label>
+      <label for="">
+        <input type="radio" name="attend" value="goodAttendance" (change)="overallPerformance('attendance',$event)">
+        Good
+      </label>
+      <label for="">
+        <input type="radio" name="attend" value="satisfyAttendance" (change)="overallPerformance('attendance',$event)">
+        Satisfactory
+      </label>
+      <label>
+        <input type="radio" name="attend" value="badAttenadance" (change)="overallPerformance('attendance',$event)">
+        Unsatisfactory
+      </label>
+    </div>
+    <div class="punctuality-container">
+      <label>
+        <h6>Punctuality</h6>
+      </label>
+      <label for="">
+        <input type="radio" name="punct" value="goodPunctuality" (change)="overallPerformance('punctuality', $event)">
+        Good
+      </label>
+      <label for="">
+        <input type="radio" name="punct" value="satisfyPunctuality"
+          (change)="overallPerformance('punctuality', $event)"> Satisfactory
+      </label>
+      <label>
+        <input type="radio" name="punct" value="badPunctuality" (change)="overallPerformance('punctuality', $event)">
+        Unsatisfactory
+      </label>
+    </div>
+    <div class="ability-container">
+      <label>
+        <h6>Ability</h6>
+      </label>
+      <label for="">
+        <input type="radio" name="abili" value="goodAbilty" (change)="overallPerformance('ability', $event)"> Good
+      </label>
+      <label for="">
+        <input type="radio" name="abili" value="satisfyAbility" (change)="overallPerformance('ability', $event)">
+        Average
+      </label>
+      <label>
+        <input type="radio" name="abili" value="avgAbility" (change)="overallPerformance('ability', $event)"> Below
+        Average
+      </label>
+      <label>
+        <input type="radio" name="abili" value="slowAbility" (change)="overallPerformance('ability' , $event)"> Slow
+        Learner
+      </label>
+    </div>
   </div>
-  <div class="behave-checkboxes">
-    <label>
-      <h6>Unsatisfactory</h6>
-    </label>
-    <label>
-      <input type="checkbox" value="notlisten" (click)="concentrationBehave('listen',$event)"> Listen</label>
-    <label>
-      <input type="checkbox" value="language" (click)="concentrationBehave('inappropriate',$event)"> Language</label>
-    <label>
-      <input type="checkbox" value="misbehave" (click)="concentrationBehave('misBehave',$event)"> Misbehave</label>
-  </div>
-</div>
-<div class="overall-container">
-  <div class="attendance-container">
-    <label>
-      <h6>Attendance</h6>
-    </label>
-    <label for="">
-      <input type="radio" name="attend" value="goodAttendance" (change)="overallPerformance('attendance',$event)"> Good
-    </label>
-    <label for="">
-      <input type="radio" name="attend" value="satisfyAttendance" (change)="overallPerformance('attendance',$event)"> Satisfactory
-    </label>
-    <label>
-      <input type="radio" name="attend" value="badAttenadance" (change)="overallPerformance('attendance',$event)"> Unsatisfactory
-    </label>
-  </div>
-  <div class="punctuality-container">
-    <label>
-      <h6>Punctuality</h6>
-    </label>
-    <label for="">
-      <input type="radio" name="punct" value="goodPunctuality" (change)="overallPerformance('punctuality', $event)"> Good
-    </label>
-    <label for="">
-      <input type="radio" name="punct" value="satisfyPunctuality" (change)="overallPerformance('punctuality', $event)"> Satisfactory
-    </label>
-    <label>
-      <input type="radio" name="punct" value="badPunctuality" (change)="overallPerformance('punctuality', $event)"> Unsatisfactory
-    </label>
-  </div>
-  <div class="ability-container">
-    <label>
-      <h6>Ability</h6>
-    </label>
-    <label for="">
-      <input type="radio" name="abili" value="goodAbilty" (change)="overallPerformance('ability', $event)"> Good
-    </label>
-    <label for="">
-      <input type="radio" name="abili" value="satisfyAbility" (change)="overallPerformance('ability', $event)"> Average
-    </label>
-    <label>
-      <input type="radio" name="abili" value="avgAbility" (change)="overallPerformance('ability', $event)"> Below Average
-    </label>
-    <label>
-      <input type="radio" name="abili" value="slowAbility" (change)="overallPerformance('ability' , $event)"> Slow Learner
-    </label>
-  </div>
-</div>
-<!-- overall end -->
-<label>
-  <h6>Additional Comments</h6>
-</label>
-<div class="additional-container">
-  <textarea type="text" rows="" cols="75" value="Note" [(ngModel)]="commentShown.additional" class="form-control mb-2" name="optional">
-        </textarea>
+  <!-- overall end -->
   <label>
-    <h6>Parents Remarks:</h6>
+    <h6>Additional Comments</h6>
   </label>
-  <textarea type="text" rows="" cols="75" value="Note" [(ngModel)]="commentShown.parents" class="form-control mb-2" name="optional">
+  <div class="additional-container">
+    <textarea type="text" rows="" cols="75" value="Note" [(ngModel)]="commentShown.additional" class="form-control mb-2"
+      name="optional">
+        </textarea>
+    <label>
+      <h6>Parents Remarks:</h6>
+    </label>
+    <textarea type="text" rows="" cols="75" value="Note" [(ngModel)]="commentShown.parents" class="form-control mb-2"
+      name="optional">
             </textarea>
-</div>
+  </div>
 </div>
 
 <!--additainali end -->
@@ -333,15 +355,16 @@
       <div>
         <span>{{commentShown.parents}}</span>
       </div>
-      <span>Requesting the parents to sign the diary every week and discuss his class progress with him. Requesting the parents about
-          school report.</span>
-        <span> Parent was thankful to science department on informing the child Science progress !!</span>
+      <span>Requesting the parents to sign the diary every week and discuss his class progress with him. Requesting the
+        parents about
+        school report.</span>
+      <span> Parent was thankful to science department on informing the child Science progress !!</span>
     </div>
   </div>
 
 
   <div class="card-body myStyle">
-    
+
   </div>
   <div class="container-button mt-0">
     <button class="btn btn-success" (click)="successCopied()" style="margin: 5px;" type="button">

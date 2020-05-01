@@ -1,0 +1,126 @@
+[
+    {
+        "type": "radio",
+        "name": "behaviour",
+        "label": "Today Behaviour",
+        "required": true,
+        "options": [
+            {
+                "key": "good",
+                "label": "Good"
+            },
+            {
+                "key": "satisfactory",
+                "label": "Satisfactory"
+            },
+            {
+                "key": "unsatisfactory",
+                "label": "Unsatisfactory"
+            }
+        ]
+    },
+    {
+        "type": "radio",
+        "name": "workpace",
+        "label": "Today WorkPace",
+        "required": true,
+        "options": [
+            {
+                "key": "good",
+                "label": "Good"
+            },
+            {
+                "key": "satisfactory",
+                "label": "Satisfactory"
+            },
+            {
+                "key": "slow",
+                "label": "Slow"
+            }
+        ]
+    },
+    {
+        "type": "radio",
+        "name": "homework",
+        "label": "Previous Homework",
+        "required": true,
+        "options": [
+            {
+                "key": "done",
+                "label": "Done"
+            },
+            {
+                "key": "partially",
+                "label": "Partially"
+            },
+            {
+                "key": "notdone",
+                "label": "NotDone"
+            }
+        ]
+    },
+    {
+        "type": "radio",
+        "name": "understanding",
+        "label": "Understanding",
+        "required": true,
+        "options": [
+            {
+                "key": "good",
+                "label": "Good"
+            },
+            {
+                "key": "average",
+                "label": "Average"
+            },
+            {
+                "key": "poor",
+                "label": "Poor"
+            }
+        ]
+    },
+    {
+        "type": "radio",
+        "name": "Puntuality",
+        "label": "Puntuality",
+        "required": true,
+        "options": [
+            {
+                "key": "ontime",
+                "label": "OnTime"
+            },
+            {
+                "key": "late",
+                "label": "Late"
+            }
+        ]
+    },
+    {
+        "type": "checkbox",
+        "name": "concen",
+        "label": "Concentration",
+        "required": true,
+        "options": [
+            {
+                "key": "poor",
+                "label": "Tick if Concentration is poor"
+            },
+            {
+                "key": "hwPoor",
+                "label": "only tick if HW quality is poor"
+            }
+        ]
+    },
+    {
+        "type": "text",
+        "name": "optional",
+        "label": "Optional Comments",
+        "value": "",
+        "required": true
+    },
+    {
+        "type": "hidden",
+        "value": "TeacherComments",
+        "name": "type"
+    }
+]

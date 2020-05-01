@@ -4,17 +4,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ClipboardModule} from 'ngx-clipboard';
+import { ClipboardModule } from 'ngx-clipboard';
 import { ScienceComponent } from './science/science.component';
 import { StudentComponent } from './student/student.component';
 import { StudentNameService } from './services/student-name.service';
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { RegisterStudentComponent } from './registerStudent/register-student.component';
 import { SearchStudentComponent } from './searchstudent/searchstudent.component';
-import { TeachercommentComponent } from './maths/teacherComment/teachercomment.component';
+import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
 import { DynamicFormBuilderModule } from './dynamicForms/dynamic-form-builder.module';
 import { ViewstudentComponent } from './student/viewstudent/viewstudent.component';
-
+import { QuestionnaireService } from './services/questionnaire.service';
+import { CommonAnswerService } from './services/common-answer.service';
+import { FormsListComponent } from './ManageForms/forms-list/forms-list.component';
+import { ManageFormsService } from './services/manage-forms.service';
+import { NewFormCriteriaComponent } from './ManageForms/new-form-criteria/new-form-criteria.component';
 
 @NgModule({
   declarations: [
@@ -24,9 +28,11 @@ import { ViewstudentComponent } from './student/viewstudent/viewstudent.componen
     StudentComponent,
     RegisterStudentComponent,
     SearchStudentComponent,
-    TeachercommentComponent,
+    QuestionnaireComponent,
     ViewstudentComponent,
-   
+    FormsListComponent,
+    NewFormCriteriaComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -37,7 +43,12 @@ import { ViewstudentComponent } from './student/viewstudent/viewstudent.componen
     HttpClientModule,
     DynamicFormBuilderModule
   ],
-  providers: [StudentNameService],
+  providers: [
+    StudentNameService,
+    QuestionnaireService,
+    CommonAnswerService,
+    ManageFormsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -16,7 +16,7 @@
         <div class="col-sm-3">
           <div class="form-group">
             <label for="lastName">First & Last Name</label>
-            <select class="form-control" [(ngModel)]="teacherComments.selectedStudentId" (change)="onChangeStudent()">
+            <select class="form-control" [(ngModel)]="formData.selectedStudentId" (change)="onChangeStudent()">
               <option *ngFor="let s of students"[value]="s.ID">
                 {{s.Name}}
                 {{s.ID}}
@@ -27,7 +27,7 @@
         <div class="col-sm-3">
           <div class="form-group">
             <label for="lastName">Subject</label>
-            <select class="form-control" [(ngModel)]="teacherComments.selectedSubjectId" (change)="onChangeSubject()">
+            <select class="form-control" [(ngModel)]="formData.selectedSubjectId" (change)="onChangeSubject()">
               <option value="0" >Select Subject ---</option>
               <option *ngFor="let s of subjects"[value]="s.SubjectId">
                 {{s.SubjectName}}

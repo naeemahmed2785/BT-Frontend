@@ -28,21 +28,19 @@
             <input type="text" class="form-control" [(ngModel)]="regStudent.gender" name="year">
           </div>
         </div>
-        <div class="row" >
+        <div class="row">
           <div class="col-sm-12 form-group">
             <div class="form-check-inline col-sm-4" *ngFor=" let sub of subjects;">
-              <input type="checkbox"
-               value="{{sub.ID}}"
-                (change)="checkBoxes($event)">
-             <label>{{sub.SubjectName}}</label> 
+              <input type="checkbox" value="{{sub.ID}}" (change)="checkBoxes($event)">
+              <label>{{sub.SubjectName}}</label>
             </div>
-        </div>
+          </div>
         </div>
 
         <div class="row">
           <div class="col-sm-4 form-group">
             <label>Restart Date</label>
-            <input type="date" class="form-control"[(ngModel)]="regStudent.date" name="date">
+            <input type="date" class="form-control" [(ngModel)]="regStudent.date" name="date">
           </div>
           <div class="col-sm-4 form-group">
             <label>Choose A File</label>

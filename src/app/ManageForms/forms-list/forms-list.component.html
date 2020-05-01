@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="mt-2">
+        <a [routerLink]="['/newForm']" type="button" class="btn btn-primary">Add New Form</a>
+      </div>
+      <table class="table" *ngIf="listOfForms">
+        <thead>
+          <tr class="thead-dark">
+            <td>Subject</td>
+            <td>Form Name</td>
+            <td>View Form</td>
+            <td>Edit Form</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let form of listOfForms">
+            <td>{{ form.SubjectName }}</td>
+            <td>{{ form.Type }}</td>
+            <td><button>View</button></td>
+            <td><button>Edit</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

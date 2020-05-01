@@ -14,12 +14,8 @@ export class StudentNameService {
   constructor(private http: HttpClient) { }
   apiUrl = 'http://localhost:3000/'
 
-  getStudentById(id) {
-    return this.http.get<any[]>(this.apiUrl + 'studentsByRef/' + id)
-  }
-
-  sendData(obj) {
-    return this.http.post(this.apiUrl + 'ptm/', obj);
+  getStudentByRef(ref) {
+    return this.http.get<any>(this.apiUrl + 'studentsByRef/' + ref);
   }
 
   saveNewStudent(obj: newStudent) {
@@ -34,19 +30,10 @@ export class StudentNameService {
     return this.http.get<any>(this.apiUrl + 'getSubjects/')
   }
 
-  getCriteriaType(subjectId) {
-    return this.http.get<any>(this.apiUrl + 'getCriteriaType/' + subjectId);
-  }
-  getCriteriaById(id){
-    return this.http.get(this.apiUrl + 'getCriteriaById/' + id)
-  }
-  
   getStudentSubjects(id){
     return this.http.get<any>(this.apiUrl + 'getStudentSubjects/' + id)
   }
-  saveTeacherComment(obj) {
-    return this.http.post<any>(this.apiUrl + 'saveteachercomment/', obj)
-  }
+
   viewStudentByRef(ref){
     return this.http.get(this.apiUrl + 'viewstudent/' + ref)
   }
