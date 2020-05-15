@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { newStudent } from '../model/newStudent.model';
-import { StudentNameService } from '../services/student-name.service'
+import { StudentService } from '../services/student.service'
+import { SubjectService } from '../services/subject.service';
 
 
 @Component({
@@ -10,33 +11,34 @@ import { StudentNameService } from '../services/student-name.service'
 })
 export class RegisterStudentComponent implements OnInit {
 
-regStudent : newStudent = new newStudent();
-subjects ;
-values = [];
-  constructor( private httpNewStudent: StudentNameService){}
+  regStudent: newStudent = new newStudent();
+  subjects;
+  values = [];
+  constructor(private httpNewStudent: StudentService,
+    private subjectService: SubjectService) { }
 
   ngOnInit() {
-    this.httpNewStudent.getSubject().subscribe(data => {
-       this.subjects = data;
-       console.log(this.subjects)
+    this.subjectService.getAll().subscribe(data => {
+      this.subjects = data;
+      console.log(this.subjects)
     })
   }
-  checkBoxes(event){
-    if(event.target.checked) {
+  checkBoxes(event) {
+    if (event.target.checked) {
       this.values.push(event.target.value);
     } else {
-      const filtered = this.values.filter((item) => { return item !== event.target.value});
-      this.values=filtered;
+      const filtered = this.values.filter((item) => { return item !== event.target.value });
+      this.values = filtered;
     }
     this.regStudent.subject = this.values
   }
-  regNewStudentFunction(){
-    console.log('Got data in function',this.regStudent)
+  regNewStudentFunction() {
+    console.log('Got data in function', this.regStudent)
     this.httpNewStudent.saveNewStudent(this.regStudent).subscribe({
-      next(data){
+      next(data) {
         console.log('data save Successfully', data)
       },
-      error (err) {
+      error(err) {
         console.log('Got error while saving data', err)
       }
     })

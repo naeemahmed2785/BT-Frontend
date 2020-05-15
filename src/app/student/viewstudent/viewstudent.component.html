@@ -14,7 +14,7 @@
             </div>
             <div class="col form-group">
               <label>Subjects</label>
-              <h5>{{ s.subjects }}</h5>
+              <h5>{{ s.StudentSubjects }}</h5>
             </div>
             <div class="col form-group">
               <label>Year</label>
@@ -27,26 +27,26 @@
             <p>{{ s.Comments }}</p>
           </div>
         </div>
-        <ul class="list-group list-group-flush" *ngFor="let student of StudentRecords">
-          <li class="list-group-item" *ngIf="student.hasOwnProperty('Comments')">
+        <ul class="list-group list-group-flush" *ngFor="let ans of answers">
+          <li class="list-group-item" *ngIf="isTeacherComments(ans)">
             <h6>Teacher Comments:</h6>
-            {{ student.Comments }}
-            <strong>{{ student.CreatedDate | date: "dd/MM/yyyy" }}</strong>
+            {{ generateComments(ans) }}
+            <strong>{{ ans.date | date: "dd/MM/yyyy" }}</strong>
           </li>
           <div class="table-responsive">
-            <table class="table" *ngIf="student.hasOwnProperty('Book')">
+            <table class="table" *ngIf="isTestRecord(ans)">
               <tbody>
                 <tr class="text-center">
-                  <td class="border-right" style="width: 90px;">{{ student.Book }}</td>
-                  <td class="border-right" style="width: 90px;">{{ student.TestNumber }}</td>
-                  <td class="border-right" style="width: 90px;">{{ student.TestAttempt }}</td>
+                  <td class="border-right" style="width: 90px;">{{ ans.book }}</td>
+                  <td class="border-right" style="width: 90px;">{{ ans.testNumber }}</td>
+                  <td class="border-right" style="width: 90px;">{{ ans.attempt }}</td>
                   <td class="border-right" style="width: 90px;">
-                    {{ student.CreatedDate | date: "dd/MM/yyyy" }}
+                    {{ ans.testDate | date: "dd/MM/yyyy" }}
                   </td>
-                  <td class="border-right" style="width: 90px;">{{ student.Marks }}</td>
-                  <td class="border-right" style="width: 90px;">{{ student.Result }}</td>
-                  <td class="border-right" style="width: 90px;">{{ student.Teacher }}</td>
-                  <td style="width: 90px;">{{ student.UpdateBy }}</td>
+                  <td class="border-right" style="width: 90px;">{{ ans.marks }}</td>
+                  <td class="border-right" style="width: 90px;">{{ ans.results }}</td>
+                  <td class="border-right" style="width: 90px;">{{ ans.teacher }}</td>
+                  <td style="width: 90px;">{{ ans.updatedBy }}</td>
                 </tr>
               </tbody>
             </table>

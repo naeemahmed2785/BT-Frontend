@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, FormControl, Validators } from '@angular/forms';
 import { ManageFormsService } from 'src/app/services/manage-forms.service';
+import { observable } from 'rxjs';
+import { isTemplateExpression } from 'typescript';
 
 @Component({
   selector: 'app-new-form-criteria',
@@ -18,6 +20,7 @@ export class NewFormCriteriaComponent implements OnInit {
     private formService: ManageFormsService) { }
 
   ngOnInit() {
+    this.formService.getSubject().subscribe(data => this.subjects = data);
     this.questions = new FormArray([]);
     this.questions.push(this.fb.group({
       formName: new FormControl('', [Validators.required]),
@@ -31,16 +34,15 @@ export class NewFormCriteriaComponent implements OnInit {
   onAddNewquestion() {
     const question = this.fb.group({
       type: new FormControl('', [Validators.required]),
-      name: new FormControl('', [Validators.required]),
       label: new FormControl('', [Validators.required]),
       required: new FormControl(false)
     });
     question.get('type').valueChanges.subscribe(value => {
-      // text, date, radio, checkbox, dropdown
       if (value === 'radio' || value === 'checkbox' || value === 'dropdown') {
         const options = new FormArray([]);
         options.push(this.fb.group({
           label: new FormControl('')
+
         }))
         question.addControl('options', options);
       } else {
@@ -51,21 +53,11 @@ export class NewFormCriteriaComponent implements OnInit {
   }
 
   ifControlExist(form, controlName) {
-    const control = form.controls[controlName];
-    if (control) {
-      return true;
-    } else {
-      return false;
-    }
+    return form.control[controlName] ? true : false;
   }
 
   ifOptionsExist(question) {
-    const option = question.controls['options'];
-    if (option) {
-      return true;
-    } else {
-      return false;
-    }
+    return question.controls['options'] ? true : false;
   }
 
 
@@ -74,6 +66,12 @@ export class NewFormCriteriaComponent implements OnInit {
       label: new FormControl('')
     })
     question.get('options').push(option);
+  }
+
+  onRemoveOption(optionForm, j) {
+    if (confirm('Are you sure you want to remove this option ?')) {
+      optionForm.removeAt(j);
+    }
   }
 
   removeContact(index) {
@@ -90,11 +88,16 @@ export class NewFormCriteriaComponent implements OnInit {
         })
       }
       return q;
-    });
-    console.log(JSON.stringify(myQuestionnaire));
-    // His Behaviour.
-    // ['His', 'Behaviour']
-    // jion() = hisBehaviour
+    })
+
+    const formValue = myQuestionnaire[0].formName;
+    myQuestionnaire.push({ type: 'hidden', value: formValue, name: 'type' });
+
+    console.log(myQuestionnaire)
+    // this.formService.saveQuestionnaire((myQuestionnaire)).subscribe(data => {
+    //   let response = data;
+    //   console.log('response body from backend', response)
+    // })
   }
 
   previewQuestionnaire() {

@@ -17,7 +17,7 @@
           <div class="form-group">
             <label for="lastName">First & Last Name</label>
             <select class="form-control" [(ngModel)]="formData.selectedStudentId" (change)="onChangeStudent()">
-              <option *ngFor="let s of students"[value]="s.ID">
+              <option *ngFor="let s of students" [value]="s.ID">
                 {{s.Name}}
                 {{s.ID}}
               </option>
@@ -28,8 +28,8 @@
           <div class="form-group">
             <label for="lastName">Subject</label>
             <select class="form-control" [(ngModel)]="formData.selectedSubjectId" (change)="onChangeSubject()">
-              <option value="0" >Select Subject ---</option>
-              <option *ngFor="let s of subjects"[value]="s.SubjectId">
+              <option value="0">Select Subject ---</option>
+              <option *ngFor="let s of subjects" [value]="s.SubjectId">
                 {{s.SubjectName}}
               </option>
             </select>
@@ -38,23 +38,19 @@
         <div class="col-sm-3">
           <div class="form-group">
             <label>Type</label>
-            <select class="form-control" [(ngModel)]="selectedQuestionaireId"
-             (change)="onChangeQuestionaireType()">
-              <option value="0" >Select Type ---</option>
-              <option *ngFor="let c of listOfQuestionaire;"[value]="c.ID">
-                {{c.Type}}
+            <select class="form-control" [(ngModel)]="selectedQuestionaireId" (change)="onChangeQuestionaireType()">
+              <option value="0">Select Type ---</option>
+              <option *ngFor="let c of listOfQuestionaire;" [value]="c.ID">
+                {{c.Name}}
               </option>
             </select>
           </div>
         </div>
-        <div *ngIf="questionaire.length > 0" class="container">
-          <dynamic-form-builder (onSubmit)="onSubmit($event)" [fields]="questionaire">
-          </dynamic-form-builder>
-          <div>
-            <p>{{results}}</p>
-          </div>
-        </div>
       </div>
+    </div>
+    <div *ngIf="questionaire.length > 0" class="container mt-1">
+      <dynamic-form-builder (onSubmit)="onSubmit($event)" [fields]="questionaire">
+      </dynamic-form-builder>
     </div>
   </div>
 </div>

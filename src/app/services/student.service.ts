@@ -8,34 +8,39 @@ import { searchStudent } from '../model/searchStudent.model';
 @Injectable({
   providedIn: 'root'
 })
-export class StudentNameService {
+export class StudentService {
   obj = new searchStudent();
 
   constructor(private http: HttpClient) { }
   apiUrl = 'http://localhost:3000/'
 
-  getStudentByRef(ref) {
-    return this.http.get<any>(this.apiUrl + 'studentsByRef/' + ref);
-  }
-
-  saveNewStudent(obj: newStudent) {
-    return this.http.post<newStudent>(this.apiUrl + 'newStudent/', obj)
-  }
-
   getStudentsData(obj: any) {
-    return this.http.post<any>(this.apiUrl + 'search', obj)
+    return this.http.post<any>(this.apiUrl + 'student/search/', obj);
   }
+
+  getStudentByRef(ref) {
+    return this.http.get<any>(this.apiUrl + 'student/' + ref + '/byRef');
+  }
+
+  getStudentSubjects(id) {
+    return this.http.get<any>(this.apiUrl + 'student/' + id + '/subjects')
+  }
+
+
+  saveNewStudent(obj) {
+    return this.http.post<any>(this.apiUrl + 'student/create/', obj)
+  }
+
+
 
   getSubject() {
     return this.http.get<any>(this.apiUrl + 'getSubjects/')
   }
 
-  getStudentSubjects(id){
-    return this.http.get<any>(this.apiUrl + 'getStudentSubjects/' + id)
-  }
 
-  viewStudentByRef(ref){
-    return this.http.get(this.apiUrl + 'viewstudent/' + ref)
+
+  viewStudentByRef(id) {
+    return this.http.get(this.apiUrl + 'student/' + id)
   }
 
 }

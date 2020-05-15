@@ -1,9 +1,9 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { StudentNameService } from "src/app/services/student-name.service";
+import { StudentService } from "src/app/services/student.service";
 import { FormGroup, FormControl } from "@angular/forms";
 import { QuestionnaireService } from "../services/questionnaire.service";
-import { CommonAnswerService } from '../services/common-answer.service';
+import { AnswerService } from '../services/answer.service';
 
 @Component({
   selector: "app-teacher",
@@ -23,9 +23,9 @@ export class QuestionnaireComponent implements OnInit {
   formData: { [key: string]: any } = {};
 
   constructor(
-    private studentNameService: StudentNameService,
+    private studentNameService: StudentService,
     private questionnaireService: QuestionnaireService,
-    private commonService: CommonAnswerService,
+    private commonService: AnswerService,
     private _route: ActivatedRoute
   ) { }
 
@@ -52,7 +52,7 @@ export class QuestionnaireComponent implements OnInit {
   }
 
   onChangeSubject() {
-    this.questionnaireService.getCriteriaType(this.formData.selectedSubjectId).subscribe((data) => {
+    this.questionnaireService.getCriteriaName(this.formData.selectedSubjectId).subscribe((data) => {
       this.listOfQuestionaire = data;
     });
   }
@@ -80,38 +80,19 @@ export class QuestionnaireComponent implements OnInit {
   }
 
   onSubmit(data) {
-    console.log("data::", data);
-    switch (data.type) {
-      case "TeacherComments":
-        this.commonService.generateTeacherComments(this.formData, data);
-        break;
-      case "PTM":
-        this.generatePTM(data);
-        break;
-      case "SupervisorComments":
-        this.generateSupervisorComments(data);
-        break;
-      case "TestRecord":
-        this.generateTestRecord(data);
-        break;
 
-      default:
-        break;
-    }
+    const answer = { ...this.formData, answer: data, qId: this.selectedQuestionaireId };
+    console.log("data::", JSON.stringify(answer));
+
+    this.commonService.saveAnswer(answer).subscribe((data) => {
+      console.log('Record saved successfully.');
+      alert('Record saved successfully.');
+    }, (err) => {
+      alert('An error occured while saving your record');
+      console.log(err);
+    });
+
     this.questionaire = [];
   }
 
-  generatePTM(data) {
-    console.log(data);
-  }
-
-  generateSupervisorComments(data) { }
-
-  generateTestRecord(data) {
-    const answer = { ...this.formData, ...data };
-    console.log("complete form data:", answer);
-    this.questionnaireService.saveTestRecord(answer).subscribe((data) => {
-      console.log("saved test Reord:");
-    });
-  }
 }

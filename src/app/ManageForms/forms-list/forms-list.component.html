@@ -11,14 +11,18 @@
             <td>Form Name</td>
             <td>View Form</td>
             <td>Edit Form</td>
+            <td>Delete Form</td>
+
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let form of listOfForms">
             <td>{{ form.SubjectName }}</td>
-            <td>{{ form.Type }}</td>
-            <td><button>View</button></td>
-            <td><button>Edit</button></td>
+            <td>{{ form.Name }}</td>
+            <td><button class="btn btn-info">View</button></td>
+            <td><button class="btn btn-secondary">Edit</button></td>
+            <td><button class="btn btn-danger">Delete</button></td>
+
           </tr>
         </tbody>
       </table>

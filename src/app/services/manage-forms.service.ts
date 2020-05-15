@@ -9,15 +9,13 @@ export class ManageFormsService {
     }
 
     getFormsList() {
-        return this.http.get<any>(this.apiUrl + 'getFormsList');
+        return this.http.get<any>(this.apiUrl + 'questionnaire/getAll');
     }
     getSubject() {
-        return this.http.get<any>(this.apiUrl + 'getSubjects/')
+        return this.http.get<any>(this.apiUrl + 'subjects/')
 
     }
-    saveCreatedForm(arrayofForm) {
-        console.log('got Array in service::', arrayofForm)
-        return this.http.post<any>(this.apiUrl + 'saveNewForms', arrayofForm);
-
+    saveQuestionnaire(arrayofForm) {
+        return this.http.post<any>(this.apiUrl + 'questionnaire/create/', arrayofForm);
     }
 }

@@ -1,85 +1,69 @@
 <div class="container">
   <div>
-    <button [disabled]="!canAdd" class="btn btn-primary" (click)="onAddNewquestion()">Add New questions</button>
+    <button [disabled]="!canAdd" class="btn btn-primary mt-2" (click)="onAddNewquestion()">Add New questions</button>
   </div>
   <div *ngFor="let question of questions.controls; index as i">
-
-    <form [formGroup]="question">
-
-      <div class="form-control" *ngIf="ifControlExist(question, 'formName')">
-        <label for="formName"> Form Name:
-          <input type="text" formControlName="formName">
-        </label>
+    <form class="form-row align-items-center" [formGroup]="question">
+      <div class="form-group col-sm-6" *ngIf="ifControlExist(question, 'formName')">
+        <label for="formName"> Form Name:</label>
+        <input type="text" class="form-control" formControlName="formName">
       </div>
 
-      <div class="form-control" *ngIf="ifControlExist(question, 'subjectName')">
-        <label for="subjectName"> Subject:
-          <select formControlName="subjectName">
-            <option value="1">Math</option>
-            <option value="2">Physics</option>
-            <option value="3">Biology</option>
-            <option value="4">Chemistry</option>
-            <option value="5">ICT</option>
-          </select>
-        </label>
+      <div class="form-group col-sm-6" *ngIf="ifControlExist(question, 'subjectName')">
+        <label for="subjectName"> Subject: </label>
+        <select formControlName="subjectName" class="form-control">
+          <option value="0">Please Select Subject</option>
+          <option *ngFor="let sub of subjects" [value]="sub.ID">{{sub.SubjectName}}</option>
+        </select>
+      </div>
+      <div class="mb-2 col-sm-3" *ngIf="ifControlExist(question, 'type')">
+        <label for="type"> Type: </label>
+        <select formControlName="type" class="form-control">
+          <option value="text">text</option>
+          <option value="date">Date</option>
+          <option value="radio">Radio</option>
+          <option value="dropdown">Dropdown</option>
+          <option value="checkbox">Checkbox</option>
+        </select>
       </div>
 
-      <div class="form-control" *ngIf="ifControlExist(question, 'type')">
-        <label for="type"> Type:
-          <select formControlName="type">
-            <option value="text">text</option>
-            <option value="date">Date</option>
-            <option value="radio">Radio</option>
-            <option value="dropdown">Dropdown</option>
-            <option value="checkbox">Checkbox</option>
-          </select>
-        </label>
+      <div class="mb-2 col-sm-3" *ngIf="ifControlExist(question, 'label')">
+        <label for="label"> Label: </label>
+        <input type="text" formControlName="label" class="form-control">
       </div>
 
-      <div class="form-control" *ngIf="ifControlExist(question, 'name')">
-        <label for="name"> Name:
-          <input type="text" formControlName="name">
-        </label>
+      <div class="col-auto mt-4" *ngIf="ifControlExist(question, 'required')">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="required" formControlName="required">
+          <label class="form-check-label" for="required">
+            Required
+          </label>
+        </div>
+      </div>
+      <div class="col-sm-4 mt-4" *ngIf="i>0">
+        <button type="submit" class="btn btn-primary" (click)="removeContact(i)">Remove</button>
       </div>
 
-      <div class="form-control" *ngIf="ifControlExist(question, 'label')">
-        <label for="label"> Label:
-          <input type="text" formControlName="label">
-        </label>
-      </div>
-
-      <div class="form-control" *ngIf="ifControlExist(question, 'required')">
-        <label for="required">Is Required
-          <input type="checkbox" formControlName="required">
-        </label>
-      </div>
-
-      <div class="form-control" *ngIf="i>0">
-        <button class="btn btn-secondary btn-sm" (click)="removeContact(i)">Remove</button>
-      </div>
-
-      <div *ngIf="ifOptionsExist(question)">
-        <button class="btn btn-secondary btn-sm" (click)="onAddOptions(question)">Add Options</button>
+      <div *ngIf="ifOptionsExist(question)" class="form-inline">
+        <div class="mb-2 pl-1 col-sm-12">
+          <button class="btn btn-secondary btn-sm" (click)="onAddOptions(question)">Add Options</button>
+        </div>
         <div *ngFor="let opt of question.get('options').controls; index as j">
           <div [formGroup]="opt">
-
-            <div class="form-control" *ngIf="ifControlExist(opt, 'label')">
-              <label for="label"> Label:
-                <input type="text" formControlName="label">
-              </label>
+            <div class="m-1" *ngIf="ifControlExist(opt, 'label', 'value')">
+              <label for="label" class="justify-content-start">Label:</label>
+              <input type="text" class="form-control mr-1" formControlName="label">
+              <button (click)="onRemoveOption(question.get('options'), j)"
+                class="btn btn-secondary btn-sm">Remove</button>
             </div>
           </div>
         </div>
-
       </div>
-
     </form>
-
   </div>
-
   <div>
     <button class="btn btn-primary" [disabled]="!canAdd" (click)="save()">Save</button>&nbsp;
     <button class="btn btn-primary" (click)="previewQuestionnaire()">Preview Questionnaire</button>
   </div>
-
+  <pre>{{questions.value | json}} </pre>
 </div>

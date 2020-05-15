@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, Input, EventEmitter, HostListener } from '@angular/core';
-import { StudentNameService } from '../services/student-name.service';
+import { StudentService } from '../services/student.service';
 
 
 @Component({
@@ -15,7 +15,7 @@ export class StudentComponent implements OnInit {
 
 
 
-  constructor(private _http: StudentNameService) { }
+  constructor(private _http: StudentService) { }
 
   ngOnInit() {
   }
