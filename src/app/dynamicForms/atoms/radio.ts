@@ -2,8 +2,8 @@ import { Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 @Component({
-    selector: 'radio',
-    template: `
+  selector: 'radio',
+  template: `
       <div [formGroup]="form">
         <div class="form-check form-check-inline" *ngFor="let opt of field.options">
           <input class="form-check-input" type="radio" [value]="opt.key" [formControlName]="field.name" >
@@ -12,9 +12,11 @@ import { FormGroup } from '@angular/forms';
           </label>
         </div>
       </div> 
-    `
+    `,
+  styles: ['input[type="radio"] {transform: scale(1.5)}']
+
 })
 export class RadioComponent {
-    @Input() field:any = {};
-    @Input() form:FormGroup;
+  @Input() field: any = {};
+  @Input() form: FormGroup;
 }

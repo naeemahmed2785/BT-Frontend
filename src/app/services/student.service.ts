@@ -26,11 +26,9 @@ export class StudentService {
     return this.http.get<any>(this.apiUrl + 'student/' + id + '/subjects')
   }
 
-
   saveNewStudent(obj) {
     return this.http.post<any>(this.apiUrl + 'student/create/', obj)
   }
-
 
 
   getSubject() {
@@ -38,15 +36,16 @@ export class StudentService {
   }
 
 
+  viewStudentByRef(ref) {
+    return this.http.get(this.apiUrl + 'student/' + ref)
+  }
 
-  viewStudentByRef(id) {
-    return this.http.get(this.apiUrl + 'student/' + id)
+  getAllStudent() {
+    return this.http.get<any[]>(this.apiUrl + 'student/')
   }
 
 }
 
-  // getStudentAllData(){
-  //   return this.http.get<any[]>(this.apiUrl)
-  // }
+
 
 

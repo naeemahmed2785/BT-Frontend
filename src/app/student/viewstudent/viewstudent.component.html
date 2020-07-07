@@ -27,11 +27,11 @@
             <p>{{ s.Comments }}</p>
           </div>
         </div>
-        <ul class="list-group list-group-flush" *ngFor="let ans of answers">
-          <li class="list-group-item" *ngIf="isTeacherComments(ans)">
-            <h6>Teacher Comments:</h6>
-            {{ generateComments(ans) }}
-            <strong>{{ ans.date | date: "dd/MM/yyyy" }}</strong>
+        <ul class="list-group list-group-flush" *ngFor="let ans of StudentRecords">
+          <li class="list-group-item" *ngIf="!isTestRecord(ans)">
+            <h6>{{ans.type}}:</h6>
+            {{ ans.outputStatement }}
+            <strong>{{ ans.createdDate | date: "dd/MM/yyyy" }}</strong>
           </li>
           <div class="table-responsive">
             <table class="table" *ngIf="isTestRecord(ans)">
@@ -39,9 +39,9 @@
                 <tr class="text-center">
                   <td class="border-right" style="width: 90px;">{{ ans.book }}</td>
                   <td class="border-right" style="width: 90px;">{{ ans.testNumber }}</td>
-                  <td class="border-right" style="width: 90px;">{{ ans.attempt }}</td>
+                  <td class="border-right" style="width: 90px;">{{ ans.attempts }}</td>
                   <td class="border-right" style="width: 90px;">
-                    {{ ans.testDate | date: "dd/MM/yyyy" }}
+                    {{ ans.createdDate | date: "dd/MM/yyyy" }}
                   </td>
                   <td class="border-right" style="width: 90px;">{{ ans.marks }}</td>
                   <td class="border-right" style="width: 90px;">{{ ans.results }}</td>

@@ -13,4 +13,9 @@ export class SubjectService {
     getAll() {
         return this.http.get(this.apiUrl + 'subjects/');
     }
+
+    getReportBySubjectId(subjectId, reportName, weeksdue = 0) {
+        return this.http.get<any>(this.apiUrl + 'subjects/' + subjectId + '/' + reportName + '/' + weeksdue);
+    }
+
 }

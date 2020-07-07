@@ -12,8 +12,6 @@ export class ViewstudentComponent implements OnInit {
   refNumber;
   students: Array<any> = [];
   id;
-  studentComments: Array<any> = [];
-  studentTestRecord: Array<any> = [];
   StudentRecords: Array<any> = [];
   answers;
 
@@ -33,26 +31,15 @@ export class ViewstudentComponent implements OnInit {
       this.answers = data[1].map((item) => {
         return { subject: item.SubjectName, ...JSON.parse(item.Answer) };
       });
-      console.log(this.answers);
-      // this.studentComments = data[1];
-      // this.studentTestRecord = data[2];
-      // this.StudentRecords = this.studentComments.concat(this.studentTestRecord);
-      // this.StudentRecords = this.sortByDate(this.StudentRecords);
+      this.StudentRecords = this.sortByDate(this.answers);
     });
   }
+
   sortByDate(array) {
-    return array.sort((a, b) => (a.CreatedDate > b.CreatedDate ? 1 : -1));
-  }
-
-  generateComments(ans) {
-    return this.answerService.generateTeacherComments(ans);
-  }
-
-  isTeacherComments(ans) {
-    return ans.type === 'TeacherComments';
+    return array.sort((a, b) => (a.createdDate > b.createdDate ? 1 : -1));
   }
 
   isTestRecord(ans) {
-    return ans.type === 'TestRecord';
+    return ans.type.toLowerCase().indexOf('test record') >= 0;
   }
 }

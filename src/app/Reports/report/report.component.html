@@ -1,0 +1,47 @@
+<div style="text-align: center;">
+  <h2>
+    {{reportName}} Due
+  </h2>
+</div>
+<div class="row">
+  <div class="col-sm-6">
+    <label for="subjects">Subject:</label>
+    <select class="form-control" name="subjects" id="subjects" [(ngModel)]="selectedSubject" (change)="refreshData()">
+      <option disabled value="0">Select Subject</option>
+      <option *ngFor="let sub of subjects" [value]="sub.ID">{{sub.SubjectName}}</option>
+    </select>
+  </div>
+  <div class="col-sm-6">
+    <label for="subjects">Weeks:</label>
+    <select class="form-control" [(ngModel)]="weeksDue" name="Weeks" id="Weeks" (change)="refreshData()">
+      <option value="0">All</option>
+      <option [value]="da.weeks" *ngFor="let da of dueArray">{{da.displayText}} Due</option>
+    </select>
+  </div>
+</div>
+<div class="table-responsive">
+  <table class="table table-sm" *ngIf="reportData.length > 0">
+    <thead class="thead-light">
+      <tr>
+        <th class="form-group mx-sm-3 mb-2">
+          <input type="text" class="form-control" [(ngModel)]="listFilter" id="inputPassword2" placeholder="Search...">
+        </th>
+        <th>Reference #</th>
+        <th>Full Name</th>
+        <th>Year</th>
+        <th>{{reportName}} Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of reportData">
+        <td></td>
+        <td>{{data.RefNumber}}</td>
+        <td>{{data.fullName}}</td>
+        <td>{{data.Year}}</td>
+        <td>
+          {{ data.formName}} {{data.CreatedDate | date: "dd/MM/yyyy"}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

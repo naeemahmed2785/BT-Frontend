@@ -20,6 +20,8 @@ import { FormsListComponent } from './ManageForms/forms-list/forms-list.componen
 import { ManageFormsService } from './services/manage-forms.service';
 import { NewFormCriteriaComponent } from './ManageForms/new-form-criteria/new-form-criteria.component';
 import { SubjectService } from './services/subject.service';
+import { ReportContainerComponent } from './Reports/reportcontainer/reportcontainer.component';
+import { ReportComponent } from './Reports/report/report.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { SubjectService } from './services/subject.service';
     ViewstudentComponent,
     FormsListComponent,
     NewFormCriteriaComponent,
+    ReportContainerComponent,
+    ReportComponent,
 
   ],
   imports: [

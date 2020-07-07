@@ -7,6 +7,7 @@ import { QuestionnaireComponent } from './questionnaire/questionnaire.component'
 import { ViewstudentComponent } from './student/viewstudent/viewstudent.component';
 import { FormsListComponent } from './ManageForms/forms-list/forms-list.component';
 import { NewFormCriteriaComponent } from './ManageForms/new-form-criteria/new-form-criteria.component';
+import { ReportContainerComponent } from './Reports/reportcontainer/reportcontainer.component';
 
 const routes: Routes = [
   { path: "science", component: ScienceComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: "newStudent", component: RegisterStudentComponent },
   { path: "search", component: SearchStudentComponent },
   { path: 'teacher/:ref/:id/:heading', component: QuestionnaireComponent },
+  { path: 'report/:rname', component: ReportContainerComponent }
 
 ];
 

@@ -18,11 +18,11 @@ export class AnswerService {
 
     generateTeacherComments(teacherComments) {
         let tc = "";
-        tc += "Behaviour was " + teacherComments.behaviour + ",";
+        tc += "Behaviour was " + teacherComments.classbehaviour + ",";
         tc += " workpace was " + teacherComments.workpace + ",";
-        tc += " Homework was " + teacherComments.workpace + ",";
+        tc += " Homework was " + teacherComments.homeworkquality + ",";
         tc += " Understanding was " + teacherComments.understanding + ",";
-        tc += " Puntuality was " + teacherComments.Puntuality + ".";
+        tc += " Puntuality was " + teacherComments.punctuality + ".";
 
         if (teacherComments.hasOwnProperty('concen') && teacherComments.concen.poor) {
             tc += " Concentration was poor.";
@@ -30,7 +30,8 @@ export class AnswerService {
         if (teacherComments.hasOwnProperty('concen') && teacherComments.concen.hwPoor) {
             tc += " Homework quality was poor.";
         }
-        tc += teacherComments.optional;
+        tc += teacherComments.optionalcomments + ".";
+        tc += teacherComments.createdDate;
         return tc;
     }
 }

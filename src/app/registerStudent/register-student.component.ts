@@ -20,7 +20,6 @@ export class RegisterStudentComponent implements OnInit {
   ngOnInit() {
     this.subjectService.getAll().subscribe(data => {
       this.subjects = data;
-      console.log(this.subjects)
     })
   }
   checkBoxes(event) {

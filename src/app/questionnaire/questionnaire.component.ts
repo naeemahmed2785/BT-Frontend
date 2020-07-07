@@ -79,11 +79,40 @@ export class QuestionnaireComponent implements OnInit {
     }
   }
 
+  getValues(data) {
+    if ((typeof data) === 'string') {
+      return data;
+    } else {
+      var str = '';
+      Object.keys(data).map(p => {
+        if (data[p] === true) {
+          str += p + ', ';
+        }
+      });
+      return str.trim();
+    }
+
+  }
+
   onSubmit(data) {
+    console.log('AnswersFull Data', data)
+    let statement = '';
+    const props = Object.keys(data);
+    props.splice(props.indexOf('createdDate'), 1);
+    props.splice(props.indexOf('type'), 1);
+
+    props.map(p => {
+      var q = this.questionaire.filter(q => q.name === p)[0];
+      if (q.hasOwnProperty('outputStatement')) {
+        statement += q.outputStatement.trim() + ' ' + this.getValues(data[p]) + '. ';
+      } else {
+        statement += data[p];
+      }
+    });
+
+    data['outputStatement'] = statement;
 
     const answer = { ...this.formData, answer: data, qId: this.selectedQuestionaireId };
-    console.log("data::", JSON.stringify(answer));
-
     this.commonService.saveAnswer(answer).subscribe((data) => {
       console.log('Record saved successfully.');
       alert('Record saved successfully.');
