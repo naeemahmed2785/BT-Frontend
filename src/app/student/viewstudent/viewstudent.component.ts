@@ -32,6 +32,8 @@ export class ViewstudentComponent implements OnInit {
         return { subject: item.SubjectName, ...JSON.parse(item.Answer) };
       });
       this.StudentRecords = this.sortByDate(this.answers);
+      console.log(this.StudentRecords)
+
     });
   }
 

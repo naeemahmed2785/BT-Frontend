@@ -20,7 +20,6 @@ export class SearchStudentComponent implements OnInit {
   searchFunction() {
     return this.studentService.getStudentsData(this.searchStudents).subscribe(data => {
       this.gotStudentsData = data;
-      console.log('got data from', this.gotStudentsData)
     })
   }
 

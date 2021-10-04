@@ -37,17 +37,23 @@
           </div>
         </div>
         <div class="row">
+            <div class="col-sm-4 form-group">
+                <label>Phone Number</label>
+                <input type="text" class="form-control" [(ngModel)]="regStudent.phone" name="number">
+              </div>
           <div class="col-sm-4 form-group">
             <label>Restart Date</label>
             <input type="date" class="form-control" [(ngModel)]="regStudent.date" name="date">
           </div>
-          <div class="col-sm-4 form-group">
-            <label>Choose A File</label>
-            <input type="file" class=form-control-file>
-          </div>
         </div>
-        <div>
-          <button type="submit" class="btn btn-success" (click)="regNewStudentFunction()">Submit</button>
+        <div class="row">
+            <div class="col-sm-4 form-group">
+                <label>Choose A File</label>
+                <input type="file" class=form-control-file>
+              </div>
+          <div class="col-sm-4 form-group">
+            <button type="submit" class="btn btn-success" (click)="regNewStudentFunction()">Submit</button>
+          </div>
         </div>
       </form>
     </div>

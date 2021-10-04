@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SubjectService } from 'src/app/services/subject.service';
+import { StudentComponent } from 'src/app/student/student.component';
 import { isTemplateExpression } from 'typescript';
 
 @Component({
@@ -17,20 +18,19 @@ export class ReportComponent implements OnInit, OnChanges {
   subjects;
   getDate;
   weeksDue;
-
+  date = [];
   dueArray = [];
 
-  _listFilter;
-  get listFilter() {
-    console.log(this._listFilter)
-    return this._listFilter;
-  }
-  set listFilter(value) {
-    this._listFilter = value;
-    this.reportData = this.listFilter ? this.performFilter(this.listFilter) : this.reportData;
-  }
+  // _listFilter;
+  // get listFilter() {
+  //   return this._listFilter;
+  // }
+  // set listFilter(value) {
+  //   this._listFilter = value;
+  //   this.reportData = this.listFilter ? this.performFilter(this.listFilter) : this.reportData;
+  // }
 
-  filteredStudent;
+  // filteredStudent;
 
   constructor(
     private _route: ActivatedRoute,
@@ -52,9 +52,14 @@ export class ReportComponent implements OnInit, OnChanges {
       this.dueArray.push({ displayText: '8 Weeks', weeks: 8 });
     }
     this.refreshData();
+
   }
 
   ngOnInit() {
+  // var n = this.date.getFullYear();
+  // var x = this.date.getMonth();
+  // var y = this.date.getDate();
+  // this.date = n + '-'+ x  + '-' + y;
     this.subjectService.getAll().subscribe((data: any) => {
       this.subjects = data;
     })
@@ -63,13 +68,20 @@ export class ReportComponent implements OnInit, OnChanges {
   refreshData() {
     if (this.selectedSubject && this.reportName) {
       this.subjectService.getReportBySubjectId(this.selectedSubject, this.reportName, this.weeksDue).subscribe(data => {
-        this.reportData = data;
-        this.filteredStudent = this.reportData
+        this.reportData = data.sort(function(a,b){
+          return  a.RefNumber - b.RefNumber;
+          });
+        //   var filteredList = this.reportData
+        //   .map(function(e) {
+        //     return {e, dt: e.CreatedDate };
+        //   })
+        //   .filter(e => e.dt <= new Date());
+        
+        // console.log(filteredList);
+
       })
     }
   }
-  performFilter(filterBy) {
-    return this.reportData.filter((student) =>
-      student.RefNumber.indexOf(filterBy) !== -1);
+  performFilter() {
   }
 }

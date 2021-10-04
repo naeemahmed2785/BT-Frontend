@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Comments, data, Show } from 'src/app/scienceConstant';
-import { FormArray, FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, FormControl, NgForm } from '@angular/forms';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 
 @Component({
@@ -15,7 +16,6 @@ export class ScienceComponent implements OnInit {
   selectedprogress = ' ';
   localTopic = 'improvehomework';
   studentPTM: Array<any>= [];
-
   student: Array<any>= [];
 
 
@@ -49,10 +49,10 @@ export class ScienceComponent implements OnInit {
     const name = this.form.value;
     console.log(' actual array', name)
     this.studentPTM.push(name);
-    const filter = this.studentPTM.map(item => {
-         return item.contacts[0].topic;
-      })
-      console.log('Filter Araay',filter);
+    // const filter = this.studentPTM.map(item => {
+    //      return item.contacts[0].topic;
+    //   })
+      
   }
 
   addContact() {
@@ -62,38 +62,33 @@ export class ScienceComponent implements OnInit {
     // and clear the data object.
     this.studentPTM.push({
       parent: this.showComments.parent,
+      subjects:this.showComments.subjects,
       topic: this.showComments.topic,
       progress: this.showComments.progress,
       usually: this.showComments.usually,
       test: this.showComments.pace,
       testResults: this.showComments.testResults,
-      // improve: this.showComments.improve,
-      // askMore: this.showComments.askMore,
-      // reading: this.showComments.reading,
-      // notdoing: this.showComments.notdoing,
-      // affect: this.showComments.affect,
-      // 
-      // 
-      // pace: this.showComments.pace,
-      // concentration: this.showComments.concentration,
-      // talkative: this.showComments.talkative,
-      // talkStudent: this.showComments.talkStudent,
-      // speak: this.showComments.speak,
-      // laugh: this.showComments.laugh,
-      // tiredness: this.showComments.tiredness,
-      // behave: this.showComments.behave,
-      // listen: this.showComments.listen,
-      // inappropriate: this.showComments.inappropriate,
-      // misBehave: this.showComments.misBehave,
-      // attendance: this.showComments.attendance,
-      // punctuality: this.showComments.punctuality,
-      // ability: this.showComments.ability,
-      // additional: this.showComments.additional,
-      // parents: this.showComments.parents
+      understanding: this.showComments.understanding,
+      app:this.showComments.application,
+      maths:this.showComments.maths,
+      practical: this.showComments.practical,
+      workbook: this.showComments.workbook,
+      structured: this.showComments.structured,
+      moles: this.showComments.moles,
+      formula: this.showComments.formula,
+      unit: this.showComments.unit,
+      balancing: this.showComments.balancing
+    
     });
-   
+    console.log(this.studentPTM)
+    
     this.contactList.push(this.createContact());
+    
     this.showComments = new Comments();
+  }
+
+  clearForm() {
+    
   }
   callingFunction() {
     // this.studentPTM = this.form.value;
@@ -122,6 +117,7 @@ export class ScienceComponent implements OnInit {
   onBlur(event) {
     const value = event.target.value = '';
   }
+
   progress(event) {
     const value = event.target.value;
     const localTopic = 'progress';
@@ -134,44 +130,110 @@ export class ScienceComponent implements OnInit {
     const localTopic = 'usually';
     this.showComments.usually = this.getComments(value, localTopic);
   }
+
+  testResults(event) {
+    const value = event.target.value;
+    const localTopic = 'testResults';
+    this.showComments.testResults = this.getComments(value, localTopic);
+  }
+
+  testPace(event) {
+    const value = event.target.value;
+    const localTopic = 'testPace';
+    this.showComments.pace = this.getComments(value, localTopic);
+  }
+
+  understandingofKnowledge(event) {
+    const value = event.target.value;
+    const localTopic = "understandingofKnowledge";
+    this.showComments.understanding = this.getComments(value, localTopic)
+
+  }
+
+  applicationofKnowledge(event){
+    const value = event.target.value;
+    const localTopic = "applicationofKnowledge";
+    this.showComments.application = this.getComments(value, localTopic)
+  }
+
+  mathsSkills(event){
+    const value = event.target.value;
+    const localTopic = "mathSkills";
+    this.showComments.maths = this.getComments(value, localTopic)
+  }
+ 
+  practicalKnowledge(event) {
+    const value = event.target.value;
+    const localTopic = "practicalknowledge";
+    this.showComments.practical = this.getComments(value, localTopic)
+  }
+
+ 
+
+  mistakes(propName, event) {
+    let check = this.showComments[propName] = event.target.checked;
+    if (check === false) {
+      return this.showComments[propName] = " ";
+    } else { 
+      let value = event.target.value;
+      let localTopic = "workbookMistakes";
+      this.showComments[propName] = this.getComments(value, localTopic)
+
+    }
+  }
+
+  Calulations(propName, event) {
+    let check = this.showComments[propName] = event.target.checked;
+    if (check === false) {
+      return this.showComments[propName] = " ";
+    }else {
+      let value = event.target.value;
+      let localTopic = "calculations";
+      this.showComments[propName] = this.getComments(value, localTopic);
+    }
+  }
+
   improveHomework(propName, event) {
     let check = this.commentShown[propName] = event.target.checked;
-    console.log(check)
     if (check === false) {
       return this.commentShown[propName] = " ";
     } else {
       let value = event.target.value;
       
       this.commentShown[propName] = this.getComments(value, this.localTopic);
-      console.log(this.commentShown[propName])
     }
   }
-  testResults(event) {
-    const value = event.target.value;
-    const localTopic = 'testResults';
-    this.showComments.testResults = this.getComments(value, localTopic);
-  }
-  testPace(event) {
-    const value = event.target.value;
-    const localTopic = 'testPace';
-    this.showComments.pace = this.getComments(value, localTopic);
-  }
+
   concentrationBehave(prop, event) {
-    const check = this.showComments[prop] = event.target.checked;
+    const check = this.commentShown[prop] = event.target.checked;
+    console.log(check)
     if (check === false) {
-      return this.showComments[prop] = ' ';
+      return this.commentShown[prop] = ' ';
     } else {
       const value = event.target.value;
       const localTopic = 'concentrationBehave';
-      this.showComments[prop] = this.getComments(value, localTopic);
+      this.commentShown[prop] = this.getComments(value, localTopic);
     }
 
   }
   overallPerformance(propName, event) {
     const value = event.target.value;
     const local = 'overall';
-    this.showComments[propName] = this.getComments(value, local);
+    this.commentShown[propName] = this.getComments(value, local);
   }
+  
+  handWriting(event){
+    const value = event. target.value;
+    const localTopic = "handWriting";
+    this.commentShown.handWriting = this.getComments(value, localTopic);
+  }
+
+  spelling(event) {
+    const value = event.target.value;
+    const localTopic = "Spelling";
+    this.commentShown.spelling = this.getComments(value, localTopic)
+  }
+
   copyToClipboard() {
 
   }

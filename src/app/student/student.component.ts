@@ -20,10 +20,8 @@ export class StudentComponent implements OnInit {
   ngOnInit() {
   }
   searchNameById(event) {
-    console.log('i m in', this.studentRef)
     return this._http.getStudentByRef(this.studentRef).subscribe(data => {
       this.studentData = data;
-      console.log('I m Back with data ', this.studentData)
 
     })
   }

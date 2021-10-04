@@ -32,7 +32,6 @@ export class RegisterStudentComponent implements OnInit {
     this.regStudent.subject = this.values
   }
   regNewStudentFunction() {
-    console.log('Got data in function', this.regStudent)
     this.httpNewStudent.saveNewStudent(this.regStudent).subscribe({
       next(data) {
         console.log('data save Successfully', data)

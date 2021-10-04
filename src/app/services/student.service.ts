@@ -37,6 +37,7 @@ export class StudentService {
 
 
   viewStudentByRef(ref) {
+    console.log(ref)
     return this.http.get(this.apiUrl + 'student/' + ref)
   }
 

@@ -5,6 +5,7 @@ export class newStudent {
     year: string;
     gender : string;
     subject: any;
+    phone: string;
     date: Date;
     file: File;
 }

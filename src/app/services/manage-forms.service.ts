@@ -18,4 +18,9 @@ export class ManageFormsService {
     saveQuestionnaire(arrayofForm) {
         return this.http.post<any>(this.apiUrl + 'questionnaire/create/', arrayofForm);
     }
+
+    deleteForm(id){
+        console.log(id)
+        return this.http.delete(this.apiUrl + 'updateForms/deleteFormById/' + id)
+    }
 }

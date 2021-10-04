@@ -44,7 +44,7 @@ label{
     font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
 }
 
-.concentration-container, .behaviour-container,.overall-container {
+.concentration-container, .behaviour-container,.overall-container,.writingSpelling-container {
     border: 1px solid rgb(0,0,0, 0.125);
     border-radius: 0.25rem;
     margin-top: 5px;

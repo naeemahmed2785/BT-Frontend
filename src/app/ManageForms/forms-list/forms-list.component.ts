@@ -1,5 +1,7 @@
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { ManageFormsService } from 'src/app/services/manage-forms.service';
+import { isTemplateExpression } from 'typescript';
 
 @Component({
   selector: 'app-forms-list',
@@ -19,4 +21,10 @@ export class FormsListComponent implements OnInit {
     });
   }
 
+  deleteForm (event) {    
+    let formId = event.target.value;
+    this.manageFormsService.deleteForm(formId).subscribe(data => {
+      console.log("DELETED FORM SUCCECFULLY")
+    })
+  }
 }
