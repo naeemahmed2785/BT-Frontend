@@ -80,7 +80,6 @@ export class ScienceComponent implements OnInit {
       balancing: this.showComments.balancing
     
     });
-    console.log(this.studentPTM)
     
     this.contactList.push(this.createContact());
     

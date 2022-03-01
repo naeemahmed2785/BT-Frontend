@@ -22,7 +22,7 @@ testResults : [
 
 ],
 testPace: [
-    {state: 'good', description: ' He has been attempting the tests regulary and achieving good grades.'},
+    {state: 'good', description: ' He has been attempting the tests regularly and achieving good grades.'},
     {state: 'satisfactory', description: ' He has been attempting test satisfactory but needs to increase his pace to do more tests.'},
     {state: 'slow', description: ' He has been slow in attemting test as a result he might not finish his course.'}
 
@@ -98,7 +98,7 @@ overall: [
     {state: 'goodPunctuality', description: ' He has been punctual in the class. '},
     {state: 'satisfyPunctuality', description: 'He has satisfactory puntuality.'},
     {state: 'badPunctuality', description: '  He has not been punctual in the class.'},
-    {state: 'goodAbilty', description: ' He has good abilities of learning'},
+    {state: 'goodAbilty', description: ' He has good abilities of learning. '},
     {state: 'satisfyAbility', description: ' His abilities of learning are average.'},
     {state: 'avgAbility', description: ' He is quite weak in learning.'},
     {state: 'slowAbility', description: ' He is slow learner.'}
